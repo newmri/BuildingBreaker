@@ -45,8 +45,8 @@ public class UIManager
         }
 
         Util.GetOrAddComponent<CanvasScaler>(go).uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-        Util.GetOrAddComponent<CanvasScaler>(go).referenceResolution = new Vector2(1920, 1080);
-        Util.GetOrAddComponent<CanvasScaler>(go).screenMatchMode = CanvasScaler.ScreenMatchMode.Expand;
+        Util.GetOrAddComponent<CanvasScaler>(go).referenceResolution = new Vector2(1440, 2560);
+        Util.GetOrAddComponent<CanvasScaler>(go).screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
 
         Util.GetOrAddComponent<GraphicRaycaster>(go);
     }

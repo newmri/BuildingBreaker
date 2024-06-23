@@ -44,6 +44,5 @@ public class UITitleScene : UIScene
     public void OnClickStartButton(PointerEventData evt)
     {
         CoreManagers.Scene.LoadScene(CoreDefine.Scene.Lobby);
-        Debug.Log("AA");
     }
 }
