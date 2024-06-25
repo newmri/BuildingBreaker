@@ -36,8 +36,7 @@ public class UIManager
         if (sort)
         {
             canvas.sortingLayerName = "UI";
-            canvas.sortingOrder = _sortOrder;
-            _sortOrder++;
+            canvas.sortingOrder = ++_sortOrder;
         }
         else
         {
