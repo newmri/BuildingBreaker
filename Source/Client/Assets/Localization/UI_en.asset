@@ -42,6 +42,18 @@ MonoBehaviour:
     m_Localized: Reinforcement
     m_Metadata:
       m_Items: []
+  - m_Id: 354669183500288
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 362783723094016
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 730853666848768
+    m_Localized: Setting
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

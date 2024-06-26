@@ -1,17 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityCoreLibrary;
-using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using TMPro;
 
 public class UILobbyScene : UIScene
 {
     enum Buttons
     {
-        StartButton
+        Setting_Button,
+        Play_Button,
     }
 
     enum TextMeshProUGUIs
@@ -23,26 +18,13 @@ public class UILobbyScene : UIScene
     {
         base.Init();
 
-        //Bind<Button>(typeof(Buttons));
-        //Bind<TextMeshProUGUI>(typeof(TextMeshProUGUIs));
+        Bind<Button>(typeof(Buttons));
 
-        //GetButton((int)Buttons.StartButton).gameObject.BindEvent(OnEnterButton, CoreDefine.UIEvent.Enter);
-        //GetButton((int)Buttons.StartButton).gameObject.BindEvent(OnExitButton, CoreDefine.UIEvent.Exit);
-        //GetButton((int)Buttons.StartButton).gameObject.BindEvent(OnClickStartButton);
+        GetButton((int)Buttons.Setting_Button).gameObject.BindEvent(OnClickPlayButton);
     }
 
-    public void OnEnterButton(PointerEventData evt)
+    public void OnClickPlayButton(PointerEventData evt)
     {
-        this.GetTextMesh((int)TextMeshProUGUIs.Text_TapToStart).color = Color.green;
-    }
-
-    public void OnExitButton(PointerEventData evt)
-    {
-        this.GetTextMesh((int)TextMeshProUGUIs.Text_TapToStart).color = Color.white;
-    }
-
-    public void OnClickStartButton(PointerEventData evt)
-    {
-        CoreManagers.Scene.LoadScene(CoreDefine.Scene.Lobby);
+        Managers.UI.ShowPopupUI<UISettingPopup>();
     }
 }

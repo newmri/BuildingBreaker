@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7063087578329715602}
   - component: {fileID: 7063087578329715612}
   m_Layer: 5
-  m_Name: StartButton
+  m_Name: Start_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 7063087580228468243}
   - component: {fileID: 7438888282858363531}
   m_Layer: 5
-  m_Name: Text_TapToStart
+  m_Name: TapToStart_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

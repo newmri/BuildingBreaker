@@ -79,6 +79,7 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	"st: id=12345"
 	""
 	"st: key:\"\""
 	"st: key:\"My Entry\""

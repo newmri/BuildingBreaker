@@ -11,12 +11,12 @@ public class UITitleScene : UIScene
 {
     enum Buttons
     {
-        StartButton
+       Start_Button
     }
 
     enum TextMeshProUGUIs
     {
-        Text_TapToStart
+        TapToStart_Text
     }
 
     public override void Init()
@@ -26,19 +26,19 @@ public class UITitleScene : UIScene
         Bind<Button>(typeof(Buttons));
         Bind<TextMeshProUGUI>(typeof(TextMeshProUGUIs));
 
-        GetButton((int)Buttons.StartButton).gameObject.BindEvent(OnEnterButton, CoreDefine.UIEvent.Enter);
-        GetButton((int)Buttons.StartButton).gameObject.BindEvent(OnExitButton, CoreDefine.UIEvent.Exit);
-        GetButton((int)Buttons.StartButton).gameObject.BindEvent(OnClickStartButton);
+        GetButton((int)Buttons.Start_Button).gameObject.BindEvent(OnEnterButton, CoreDefine.UIEvent.Enter);
+        GetButton((int)Buttons.Start_Button).gameObject.BindEvent(OnExitButton, CoreDefine.UIEvent.Exit);
+        GetButton((int)Buttons.Start_Button).gameObject.BindEvent(OnClickStartButton);
     }
 
     public void OnEnterButton(PointerEventData evt)
     {
-        this.GetTextMesh((int)TextMeshProUGUIs.Text_TapToStart).color = Color.green;
+        this.GetTextMesh((int)TextMeshProUGUIs.TapToStart_Text).color = Color.green;
     }
 
     public void OnExitButton(PointerEventData evt)
     {
-        this.GetTextMesh((int)TextMeshProUGUIs.Text_TapToStart).color = Color.white;
+        this.GetTextMesh((int)TextMeshProUGUIs.TapToStart_Text).color = Color.white;
     }
 
     public void OnClickStartButton(PointerEventData evt)

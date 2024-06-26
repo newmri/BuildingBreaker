@@ -16,11 +16,11 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: 0a78aae3a3e2b414f8390f6305214118
   m_Entries:
   - m_Id: 92399599616
-    m_Key: Title_StartMessage
+    m_Key: Title_Start
     m_Metadata:
       m_Items: []
   - m_Id: 4143111602176
-    m_Key: Lobby_StartMessage
+    m_Key: Lobby_Play
     m_Metadata:
       m_Items: []
   - m_Id: 4466958008320
@@ -37,6 +37,18 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 5499838922752
     m_Key: Reinforcement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 354669183500288
+    m_Key: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 362783723094016
+    m_Key: Language_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 730853666848768
+    m_Key: Setting
     m_Metadata:
       m_Items: []
   m_Metadata:
