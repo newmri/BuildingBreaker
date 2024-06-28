@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-Korean (South Korea) (ko-KR)
   m_GUID: 038c13425751f034b9b0d56accd2e239
   m_SerializeEntries:
-  - m_GUID: 070f79ded86790b4bb8edcfb1fb327ba
+  - m_GUID: e0fdb09a68c454611a07fbbfc4e4f044
     m_Address: icon_language_flag_kor
     m_ReadOnly: 1
     m_SerializedLabels:

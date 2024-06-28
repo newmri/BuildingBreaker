@@ -5,7 +5,7 @@
 namespace UnityEngine.UI.Extensions.FantasyRPG
 {
 #if UNITY_5_3_OR_NEWER
-    [ExecuteAlways]
+    [ExecuteInEditMode]
     [RequireComponent(typeof(CanvasRenderer), typeof(ParticleSystem))]
     [AddComponentMenu("UI/Effects/Extensions/UIParticleSystem")]
     public class UIParticleSystem : MaskableGraphic
@@ -133,9 +133,6 @@ namespace UnityEngine.UI.Extensions.FantasyRPG
 
         protected override void OnPopulateMesh(VertexHelper vh)
         {
-            if (null == particles)
-                return;
-
 #if UNITY_EDITOR
             if (!Application.isPlaying)
             {
@@ -164,6 +161,7 @@ namespace UnityEngine.UI.Extensions.FantasyRPG
             Vector2 corner2 = Vector2.zero;
             // iterate through current particles
             int count = pSystem.GetParticles(particles);
+
             for (int i = 0; i < count; ++i)
             {
                 ParticleSystem.Particle particle = particles[i];

@@ -14,5 +14,5 @@ AssetOrigin:
   productId: 170168
   packageName: GUI Pro - Fantasy RPG
   packageVersion: 4.0.0
-  assetPath: Assets/Layer Lab/GUI Pro-FantasyRPG/Extensions/UIParticle/UIParticleSystem.cs
+  assetPath: Assets/Scripts/UI/Particles/UIParticleSystem.cs
   uploadId: 670840
