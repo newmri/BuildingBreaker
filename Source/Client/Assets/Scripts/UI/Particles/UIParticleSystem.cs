@@ -132,6 +132,9 @@ namespace UnityEngine.UI.Extensions.FantasyRPG
 
         protected override void OnPopulateMesh(VertexHelper vh)
         {
+            if (null == particles)
+                return;
+
 #if UNITY_EDITOR
             if (!Application.isPlaying)
             {
