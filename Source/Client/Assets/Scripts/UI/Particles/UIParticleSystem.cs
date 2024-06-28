@@ -5,7 +5,6 @@
 namespace UnityEngine.UI.Extensions.FantasyRPG
 {
 #if UNITY_5_3_OR_NEWER
-    [ExecuteInEditMode]
     [RequireComponent(typeof(CanvasRenderer), typeof(ParticleSystem))]
     [AddComponentMenu("UI/Effects/Extensions/UIParticleSystem")]
     public class UIParticleSystem : MaskableGraphic
