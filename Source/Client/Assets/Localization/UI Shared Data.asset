@@ -36,7 +36,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5499838922752
-    m_Key: Reinforcement
+    m_Key: Upgrade
     m_Metadata:
       m_Items: []
   - m_Id: 354669183500288
@@ -49,6 +49,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 730853666848768
     m_Key: Setting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1429012382613504
+    m_Key: Boss
     m_Metadata:
       m_Items: []
   m_Metadata:

@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\UI\Scenes\UIScene.cs" />
     <Compile Include="Assets\Scripts\Scenes\TitleScene.cs" />
     <Compile Include="Assets\Layer Lab\Scripts\PanelView.cs" />
+    <Compile Include="Assets\CrystalFramework\Utility\SafeArea.cs" />
     <Compile Include="Assets\Scripts\Scenes\LobbyScene.cs" />
   </ItemGroup>
   <ItemGroup>
