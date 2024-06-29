@@ -106,6 +106,7 @@ namespace Crystal
 
         void Awake ()
         {
+
             Panel = GetComponent<RectTransform> ();
 
             if (Panel == null)
