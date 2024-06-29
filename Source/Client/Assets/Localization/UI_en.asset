@@ -58,6 +58,38 @@ MonoBehaviour:
     m_Localized: Boss
     m_Metadata:
       m_Items: []
+  - m_Id: 1764800341344256
+    m_Localized: Loading...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1771496765784064
+    m_Localized: Rank
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1771736923242496
+    m_Localized: Mission
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1772042918690816
+    m_Localized: Reward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1772226952167424
+    m_Localized: DailyReward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1772490719363072
+    m_Localized: Friends
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1772801244659712
+    m_Localized: Community
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1774358321299456
+    m_Localized: Guild
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

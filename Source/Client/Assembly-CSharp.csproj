@@ -65,9 +65,11 @@
     <Compile Include="Assets\Scripts\UI\Button\UICheckButton.cs" />
     <Compile Include="Assets\Layer Lab\Scripts\PanelControl.cs" />
     <Compile Include="Assets\Scripts\UI\Popup\UILanguagePopup.cs" />
+    <Compile Include="Assets\Scripts\UI\Scenes\UILoadingScene.cs" />
     <Compile Include="Assets\Scripts\UI\Scenes\UILobbyScene.cs" />
     <Compile Include="Assets\Scripts\UI\Popup\UIPopup.cs" />
     <Compile Include="Assets\Scripts\Managers\Core\UIManager.cs" />
+    <Compile Include="Assets\Scripts\Scenes\LoadingScene.cs" />
     <Compile Include="Assets\Scripts\UI\Scenes\UITitleScene.cs" />
     <Compile Include="Assets\Scripts\UI\UIExtension.cs" />
     <Compile Include="Assets\Scripts\UI\Popup\UISettingPopup.cs" />
