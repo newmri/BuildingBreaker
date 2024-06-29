@@ -90,6 +90,10 @@ MonoBehaviour:
     m_Localized: Guild
     m_Metadata:
       m_Items: []
+  - m_Id: 1805793094664192
+    m_Localized: Stage
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

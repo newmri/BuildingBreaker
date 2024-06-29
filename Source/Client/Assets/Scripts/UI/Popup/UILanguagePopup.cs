@@ -22,7 +22,7 @@ public class UILanguagePopup : UIPopup
 
     private bool _isChanging = false;
 
-    private List<UICheckButton> _checkButtonList = new List<UICheckButton>();
+    private List<UICheckIcon> _checkIconList = new List<UICheckIcon>();
 
     public override void Init()
     {
@@ -39,9 +39,9 @@ public class UILanguagePopup : UIPopup
         {
             checkButtonList[i].gameObject.BindEvent(OnClickLanguageButton);
 
-            var uiCheckButton = checkButtonList[i].GetComponent<UICheckButton>();
+            var uiCheckButton = checkButtonList[i].GetComponent<UICheckIcon>();
             uiCheckButton.Index = i;
-            _checkButtonList.Add(uiCheckButton);
+            _checkIconList.Add(uiCheckButton);
 
             if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[i])
                 uiCheckButton.OnSelected();
@@ -55,10 +55,10 @@ public class UILanguagePopup : UIPopup
 
     public void OnClickLanguageButton(PointerEventData evt)
     {
-        foreach (var button in _checkButtonList)
-            button.OnUnSelected();
+        foreach (var icon in _checkIconList)
+            icon.OnUnSelected();
 
-        var checkButton = evt.selectedObject.GetComponent<UICheckButton>();
+        var checkButton = evt.selectedObject.GetComponent<UICheckIcon>();
         checkButton.OnSelected();
 
         ChangeLocale(checkButton.Index);

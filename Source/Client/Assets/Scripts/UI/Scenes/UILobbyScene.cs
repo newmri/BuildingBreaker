@@ -20,11 +20,17 @@ public class UILobbyScene : UIScene
 
         Bind<Button>(typeof(Buttons));
 
-        GetButton((int)Buttons.Setting_Button).gameObject.BindEvent(OnClickPlayButton);
+        GetButton((int)Buttons.Setting_Button).gameObject.BindEvent(OnClickSettingButton);
+        GetButton((int)Buttons.Play_Button).gameObject.BindEvent(OnClickPlayButton);
+    }
+
+    public void OnClickSettingButton(PointerEventData evt)
+    {
+        Managers.UI.ShowPopupUI<UISettingPopup>();
     }
 
     public void OnClickPlayButton(PointerEventData evt)
     {
-        Managers.UI.ShowPopupUI<UISettingPopup>();
+        Managers.UI.ShowPopupUI<UIStagePopup>();
     }
 }

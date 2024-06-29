@@ -87,6 +87,10 @@ MonoBehaviour:
     m_Key: Guild
     m_Metadata:
       m_Items: []
+  - m_Id: 1805793094664192
+    m_Key: Stage
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
