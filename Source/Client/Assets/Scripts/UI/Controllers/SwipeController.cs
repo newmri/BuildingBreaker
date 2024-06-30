@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -33,12 +34,20 @@ public class SwipeController : MonoBehaviour, IEndDragHandler
 
     public void SetNavi(List<Image> naviList)
     {
-        for (int i = 0; i < naviList.Count; ++i)
+        _maxPage = naviList.Count;
+        for (int i = 0; i < _maxPage; ++i)
         {
-            var uiCheckButton = naviList[i].GetComponent<UICheckIcon>();
-            uiCheckButton.Index = i;
-            _checkIconList.Add(uiCheckButton);
+            var uiCheckIcon = naviList[i].GetComponent<UICheckIcon>();
+            uiCheckIcon.Index = i;
+            _checkIconList.Add(uiCheckIcon);
         }
+
+        UpdateNavi();
+    }
+
+    public void SetPageStep(Vector3 step)
+    {
+        _pageStep = step;
     }
 
     public void Previous()
@@ -47,7 +56,7 @@ public class SwipeController : MonoBehaviour, IEndDragHandler
             return;
 
         --_currentPage;
-        _targetPos -= _pageStep;
+        _targetPos = _pagesRect.localPosition - _pageStep;
         MovePage();
     }
 
@@ -57,7 +66,7 @@ public class SwipeController : MonoBehaviour, IEndDragHandler
             return;
 
         ++_currentPage;
-        _targetPos += _pageStep;
+        _targetPos = _pagesRect.localPosition + _pageStep;
         MovePage();
     }
 

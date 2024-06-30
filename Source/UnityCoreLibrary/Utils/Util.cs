@@ -165,6 +165,16 @@ namespace UnityCoreLibrary
             return null;
         }
 
+        public static void DeleteAllChildrens(GameObject gameObject)
+        {
+            while (gameObject.transform.childCount > 0)
+            {
+                Transform child = gameObject.transform.GetChild(0);
+                child.SetParent(null);
+                GameObject.Destroy(child.gameObject);
+            }
+        }
+
         public static bool IsInRange(Vector2Int dist, float range)
         {
             return dist.magnitude <= range;

@@ -10,6 +10,10 @@ public class Managers : MonoBehaviour
     public static Managers Instance { get { Init(); return s_instance; } } // 유일한 매니저를 갖고온다
 
     #region Contents
+    StageDataManager _stageData = new StageDataManager();
+
+    public static StageDataManager StageData { get { return Instance._stageData; } }
+
     #endregion
 
     #region Core
