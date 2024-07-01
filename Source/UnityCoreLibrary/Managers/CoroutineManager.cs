@@ -7,12 +7,6 @@ namespace UnityCoreLibrary
 {
     public class CoroutineManager : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-            _maxActive = 1024;
-        }
-
         public Coroutine Add(IEnumerator coroutine)
         {
             Coroutine retCorutine = null;
@@ -71,7 +65,7 @@ namespace UnityCoreLibrary
         }
 
         [SerializeField]
-        private int _maxActive;
+        private int _maxActive = 1024;
         [SerializeField]
         private int _numActive;
         [SerializeField]

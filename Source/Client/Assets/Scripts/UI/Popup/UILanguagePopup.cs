@@ -20,8 +20,6 @@ public class UILanguagePopup : UIPopup
         LanguageList
     }
 
-    private bool _isChanging = false;
-
     private List<UICheckIcon> _checkIconList = new List<UICheckIcon>();
 
     public override void Init()
@@ -61,23 +59,6 @@ public class UILanguagePopup : UIPopup
         var checkButton = evt.selectedObject.GetComponent<UICheckIcon>();
         checkButton.OnSelected();
 
-        ChangeLocale(checkButton.Index);
-    }
-
-    public void ChangeLocale(int index)
-    {
-        if (_isChanging)
-            return;
-
-        StartCoroutine(LocaleChange(index));
-    }
-
-    IEnumerator LocaleChange(int index)
-    {
-        _isChanging = true;
-
-        yield return LocalizationSettings.InitializationOperation;
-        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[index];
-        _isChanging = false;
+        Managers.Langugae.ChangeLocale(checkButton.Index);
     }
 }

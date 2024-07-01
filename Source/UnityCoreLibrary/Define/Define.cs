@@ -13,6 +13,7 @@ namespace UnityCoreLibrary
         public enum Scene
         {
             Unknown,
+            Intro,
             Title,
             Loading,
             Login,

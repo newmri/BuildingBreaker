@@ -10,15 +10,19 @@ public class Managers : MonoBehaviour
     public static Managers Instance { get { Init(); return s_instance; } } // 유일한 매니저를 갖고온다
 
     #region Contents
+    SettingDataManager _settingData = new SettingDataManager();
     StageDataManager _stageData = new StageDataManager();
 
+    public static SettingDataManager SettingData { get { return Instance._settingData; } }
     public static StageDataManager StageData { get { return Instance._stageData; } }
 
     #endregion
 
     #region Core
+    LangugaeManager _langugae = new LangugaeManager();
     UIManager _ui = new UIManager();
 
+    public static LangugaeManager Langugae { get { return Instance._langugae; } }
     public static UIManager UI { get { return Instance._ui; } }
 
     #endregion
@@ -52,6 +56,7 @@ public class Managers : MonoBehaviour
 
     void OnApplicationQuit()
     {
+        SettingData.Save();
     }
 
     public static void Clear()

@@ -11,7 +11,7 @@ public struct Stage
 
 public class StageDataManager
 {
-    bool _isLoaded = false;
+    private bool _isLoaded = false;
 
     Dictionary<int, Dictionary<string, object>> _stageList;
 

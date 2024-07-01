@@ -1,5 +1,10 @@
 using UnityCoreLibrary;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using UnityEngine.UIElements;
+using System.Collections;
+using UnityEngine.Localization.Settings;
 
 public class TitleScene : BaseScene
 {
@@ -9,8 +14,9 @@ public class TitleScene : BaseScene
     }
 
     protected override void Init(CoreDefine.Scene scene)
-    {
+    { 
         base.Init(scene);
+
         Managers.UI.ShowSceneUI<UITitleScene>();
     }
 
@@ -19,3 +25,4 @@ public class TitleScene : BaseScene
         Managers.UI.Clear();
     }
 }
+
