@@ -87,6 +87,7 @@
     <Compile Include="Assets\LeanTween\Testing\Testing240.cs" />
     <Compile Include="Assets\LeanTween\Testing\Scripts\LeanPool.cs" />
     <Compile Include="Assets\LeanTween\Testing\PerformanceTests.cs" />
+    <Compile Include="Assets\Scripts\Managers\Core\JsonDataManager.cs" />
     <Compile Include="Assets\Scripts\UI\Popup\UIPopup.cs" />
     <Compile Include="Assets\Scripts\UI\UIPage.cs" />
     <Compile Include="Assets\Scripts\Managers\Core\UIManager.cs" />
@@ -133,6 +134,7 @@
     <Compile Include="Assets\LeanTween\Framework\LTSeq.cs" />
     <Compile Include="Assets\Scripts\Scenes\LobbyScene.cs" />
     <Compile Include="Assets\Scripts\UI\Stage\UILockStage.cs" />
+    <Compile Include="Assets\Scripts\Managers\Core\SecurityManager.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralBasic.cs" />
   </ItemGroup>
   <ItemGroup>

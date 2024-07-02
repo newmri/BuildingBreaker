@@ -19,9 +19,11 @@ public class Managers : MonoBehaviour
     #endregion
 
     #region Core
+    SecurityManager _security = new SecurityManager();
     LangugaeManager _langugae = new LangugaeManager();
     UIManager _ui = new UIManager();
 
+    public static SecurityManager Security { get { return Instance._security; } }
     public static LangugaeManager Langugae { get { return Instance._langugae; } }
     public static UIManager UI { get { return Instance._ui; } }
 
