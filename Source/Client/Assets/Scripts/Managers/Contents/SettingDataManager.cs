@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.IO;
+using Unity.VisualScripting;
 
 [Serializable]
 public struct SettingData
@@ -11,10 +12,5 @@ public struct SettingData
 
 public class SettingDataManager : JsonDataManager<SettingData>
 {
-    public SettingDataManager() : base("Setting")
-    {
-
-    }
-
     public byte Language { get { return _data.Language; } set { _data.Language = value; _isDirty = true; } }
 }
