@@ -29,6 +29,10 @@ public class UITitleScene : UIScene
         GetButton((int)Buttons.Start_Button).gameObject.BindEvent(OnEnterButton, CoreDefine.UIEvent.Enter);
         GetButton((int)Buttons.Start_Button).gameObject.BindEvent(OnExitButton, CoreDefine.UIEvent.Exit);
         GetButton((int)Buttons.Start_Button).gameObject.BindEvent(OnClickStartButton);
+
+        var popup = Managers.UI.ShowPopupUI<UINameInputPopup>();
+        popup.SetText(new LocalizationInfo("UI", "NickName"), new LocalizationInfo("UI", "NickName"), new LocalizationInfo("UI", "NickNameMakeInfo"));
+
     }
 
     public void OnEnterButton(PointerEventData evt)

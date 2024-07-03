@@ -6,6 +6,18 @@ using UnityCoreLibrary;
 using UnityEngine.Localization;
 
 
+public struct LocalizationInfo
+{
+    public LocalizationInfo(string table, string key)
+    {
+        Table = table;
+        Key = key;
+    }
+
+    public string Table;
+    public string Key;
+}
+
 public class LangugaeManager
 {
 

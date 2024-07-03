@@ -94,6 +94,14 @@ MonoBehaviour:
     m_Localized: Stage
     m_Metadata:
       m_Items: []
+  - m_Id: 3267226017857536
+    m_Localized: NickName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3267405492125696
+    m_Localized: Fill in your nickname of account
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
