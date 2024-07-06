@@ -15,11 +15,19 @@ MonoBehaviour:
   m_GroupName: Localization-String-Tables-Korean (South Korea) (ko-KR)
   m_GUID: 84edc952f560edb42b4841a71f3c65a6
   m_SerializeEntries:
+  - m_GUID: d3d23ea93c9dbca46a544e5c0ca13aaf
+    m_Address: Message_ko-KR
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko-KR
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d4d354fa50cc97e4b98fdb061768183a
     m_Address: UI_ko-KR
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ko-KR
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 5034da4967c33874f82add8716b8a4dc, type: 2}

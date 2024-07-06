@@ -18,6 +18,12 @@ public class TitleScene : BaseScene
         base.Init(scene);
 
         Managers.UI.ShowSceneUI<UITitleScene>();
+
+        if(false == Managers.UserData.IsLoaded)
+        {
+            var popup = Managers.UI.ShowPopupUI<UINameInputPopup>();
+            popup.SetText(new LocalizationInfo("UI", "NickName"), new LocalizationInfo("UI", "NickName"), new LocalizationInfo("UI", "NickNameMakeInfo"));
+        }
     }
 
     public override void Clear()

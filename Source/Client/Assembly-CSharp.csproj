@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\UI\Popup\Input\UINameInputPopup.cs" />
     <Compile Include="Assets\LeanTween\Framework\LeanTest.cs" />
+    <Compile Include="Assets\Scripts\Managers\Contents\UserDataManager.cs" />
     <Compile Include="Assets\Scripts\UI\Particles\UIParticleSystem.cs" />
     <Compile Include="Assets\LeanTween\Testing\TestingDescr.cs" />
     <Compile Include="Assets\Layer Lab\Scripts\PanelControl.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Assets\Scripts\UI\Popup\UILanguagePopup.cs" />
     <Compile Include="Assets\Scripts\Managers\Contents\SettingDataManager.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathBezier2d.cs" />
+    <Compile Include="Assets\Scripts\UI\Popup\UIMessagePopup.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplinePerformance.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralEasingTypes.cs" />
     <Compile Include="Assets\LeanTween\Testing\FollowingTests.cs" />
@@ -112,6 +114,7 @@
     <Compile Include="Assets\Scripts\UI\Popup\UISettingPopup.cs" />
     <Compile Include="Assets\Scripts\Managers\Managers.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralEventsListeners.cs" />
+    <Compile Include="Assets\Scripts\Managers\Contents\MessageDataManager.cs" />
     <Compile Include="Assets\LeanTween\Framework\LeanTweenExt.cs" />
     <Compile Include="Assets\LeanTween\Framework\LeanAudio.cs" />
     <Compile Include="Assets\LeanTween\Framework\LTDescrOptional.cs" />

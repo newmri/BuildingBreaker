@@ -11,9 +11,13 @@ public class Managers : MonoBehaviour
 
     #region Contents
     SettingDataManager _settingData = new SettingDataManager();
+    MessageDataManager _messageData = new MessageDataManager();
+    UserDataManager _userData = new UserDataManager();
     StageDataManager _stageData = new StageDataManager();
 
     public static SettingDataManager SettingData { get { return Instance._settingData; } }
+    public static MessageDataManager MessageData { get { return Instance._messageData; } }
+    public static UserDataManager UserData { get { return Instance._userData; } }
     public static StageDataManager StageData { get { return Instance._stageData; } }
 
     #endregion

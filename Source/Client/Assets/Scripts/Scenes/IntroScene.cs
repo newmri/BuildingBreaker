@@ -17,6 +17,9 @@ public class IntroScene : BaseScene
         Managers.SettingData.Load();
         Managers.Langugae.Init();
 
+        Managers.MessageData.Load();
+        Managers.UserData.Load();
+
         CoreManagers.Scene.LoadScene(CoreDefine.Scene.Title);
     }
 
