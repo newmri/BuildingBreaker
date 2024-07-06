@@ -51,7 +51,7 @@ public class StageDataManager : JsonDataManager<StageData>
 
         if (_data.Length < stageCount)
         {
-            var originalLen = Util.Copy(ref _data, stageCount);
+            var originalLen = Util.Expand(ref _data, stageCount);
             for (int i = originalLen; i < stageCount; ++i)
             {
                 _data[i] = new StageData();
@@ -59,6 +59,8 @@ public class StageDataManager : JsonDataManager<StageData>
                 SetOpen(i, Convert.ToBoolean((int)_stageList[i][nameof(StageData.IsOpen)]));
             }
         }
+        else if (_data.Length > stageCount)
+            Util.Shirink(ref _data, stageCount);
     }
 
     public int GetStageCount()

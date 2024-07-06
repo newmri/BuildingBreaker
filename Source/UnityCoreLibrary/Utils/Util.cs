@@ -95,7 +95,7 @@ namespace UnityCoreLibrary
             return copy as T;
         }
 
-        public static int Copy<T>(ref T[] data, int newLength)
+        public static int Expand<T>(ref T[] data, int newLength)
         {
             var originalLen = data.Length;
 
@@ -105,6 +105,16 @@ namespace UnityCoreLibrary
             data = newData;
 
             return originalLen;
+        }
+
+        public static void Shirink<T>(ref T[] data, int newLength)
+        {
+            var originalLen = data.Length;
+
+            T[] newData = new T[newLength];
+
+            Array.Copy(data, newData, newLength);
+            data = newData;
         }
 
         public static GameObject FindChild(GameObject gameObject, string name = null, bool recursive = false)
