@@ -62,6 +62,7 @@ public class Managers : MonoBehaviour
 
     void OnApplicationQuit()
     {
+        UserData.Save();
         SettingData.Save();
     }
 

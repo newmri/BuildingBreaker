@@ -40,7 +40,10 @@ public class SecurityManager
                         swEncrypt.Write(content);
                     }
 
-                    return Convert.ToBase64String(msEncrypt.ToArray());
+                    var base64Encrypted  = Convert.ToBase64String(msEncrypt.ToArray());
+
+                    // URL Ssafe
+                    return base64Encrypted.Replace('+', '-').Replace('/', '_').TrimEnd('='); ;
                 }
             }
         }
@@ -48,6 +51,15 @@ public class SecurityManager
 
     public string Decrypt(string content, byte[] key, byte[] iv)
     {
+        // URL Ssafe
+        var base64Encrypted = content.Replace('-', '+').Replace('_', '/');
+
+        switch (base64Encrypted.Length % 4)
+        {
+            case 2: base64Encrypted += "=="; break;
+            case 3: base64Encrypted += "="; break;
+        }
+
         using (Aes aesAlg = Aes.Create())
         {
             aesAlg.Key = key;
@@ -55,7 +67,7 @@ public class SecurityManager
 
             ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
 
-            using (MemoryStream msDecrypt = new MemoryStream(Convert.FromBase64String(content)))
+            using (MemoryStream msDecrypt = new MemoryStream(Convert.FromBase64String(base64Encrypted)))
             {
                 using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
                 {
