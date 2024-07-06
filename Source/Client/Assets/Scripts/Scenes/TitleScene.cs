@@ -28,7 +28,8 @@ public class TitleScene : BaseScene
 
     public override void Clear()
     {
-        Managers.UI.Clear();
+        Managers.Clear();
+        CoreManagers.Clear();
     }
 }
 
