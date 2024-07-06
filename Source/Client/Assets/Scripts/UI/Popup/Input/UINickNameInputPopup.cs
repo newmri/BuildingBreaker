@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Localization.Components;
 
-public class UINameInputPopup : UIPopup
+public class UINickNameInputPopup : UIPopup
 {
     enum TextMeshProUGUIs
     {
@@ -14,7 +14,7 @@ public class UINameInputPopup : UIPopup
 
     enum TMP_InputFields
     {
-        Name_Input,
+        NickName_Input,
     }
 
     enum Buttons
@@ -26,9 +26,9 @@ public class UINameInputPopup : UIPopup
     private LocalizationInfo _placeholder;
     private LocalizationInfo _info;
 
-    private readonly int _nameMinLen = 1;
-    private readonly int _nameMaxLen = 10;
-    private TMP_InputField _nameInput;
+    private readonly int _nickNameMinLen = 1;
+    private readonly int _nickNameMaxLen = 10;
+    private TMP_InputField _nickNameInput;
 
     public override void Init()
     {
@@ -42,8 +42,8 @@ public class UINameInputPopup : UIPopup
         this.GetTextMesh((int)TextMeshProUGUIs.Placeholder_Text).GetComponent<LocalizeStringEvent>().StringReference.SetReference(_placeholder.Table, _placeholder.Key);
         this.GetTextMesh((int)TextMeshProUGUIs.Info_Text).GetComponent<LocalizeStringEvent>().StringReference.SetReference(_info.Table, _info.Key);
 
-        _nameInput = this.GetInputText((int)TMP_InputFields.Name_Input);
-        _nameInput.characterLimit = _nameMaxLen;
+        _nickNameInput = this.GetInputText((int)TMP_InputFields.NickName_Input);
+        _nickNameInput.characterLimit = _nickNameMaxLen;
 
         GetButton((int)Buttons.OK_Button).gameObject.BindEvent(OnClickOKButton);
     }
@@ -57,22 +57,21 @@ public class UINameInputPopup : UIPopup
 
     public void OnClickOKButton(PointerEventData evt)
     {
-        if (false == IsValidNameLen())
+        if (false == IsValidNickNameLen())
         {
             var popup = Managers.UI.ShowPopupUI<UIMessagePopup>();
-            popup.SetText(MessagePopupType.ERROR, new LocalizationInfo("Message", "NickNameLenError"), new object[] { _nameMinLen, _nameMaxLen });
+            popup.SetText(MessagePopupType.ERROR, new LocalizationInfo("Message", "NickNameLenError"), new object[] { _nickNameMinLen, _nickNameMaxLen });
             return;
         }
 
-        Managers.UserData.Name = _nameInput.text;
-
+        Managers.UserData.NickName = _nickNameInput.text;
         Managers.UI.ClosePopupUI();
     }
 
-    private bool IsValidNameLen()
+    private bool IsValidNickNameLen()
     {
-        bool isValid = (_nameInput.text.Length >= _nameMinLen &&
-                        _nameInput.text.Length <= _nameMaxLen
+        bool isValid = (_nickNameInput.text.Length >= _nickNameMinLen &&
+                        _nickNameInput.text.Length <= _nickNameMaxLen
                         );
 
         return isValid;

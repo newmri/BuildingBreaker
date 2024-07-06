@@ -21,7 +21,7 @@ public class TitleScene : BaseScene
 
         if(false == Managers.UserData.IsLoaded)
         {
-            var popup = Managers.UI.ShowPopupUI<UINameInputPopup>();
+            var popup = Managers.UI.ShowPopupUI<UINickNameInputPopup>();
             popup.SetText(new LocalizationInfo("UI", "NickName"), new LocalizationInfo("UI", "NickName"), new LocalizationInfo("UI", "NickNameMakeInfo"));
         }
     }
@@ -29,7 +29,6 @@ public class TitleScene : BaseScene
     public override void Clear()
     {
         Managers.Clear();
-        CoreManagers.Clear();
     }
 }
 

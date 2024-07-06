@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityCoreLibrary.Managers;
+using UnityEngine;
 
 namespace UnityCoreLibrary
 {
@@ -20,6 +21,7 @@ namespace UnityCoreLibrary
         public static ObjectManager Obj { get { return Instance._obj; } }
         public static CoroutineManager Coroutine { get { return Instance._coroutine; } }
         public static DataLoadManager Data { get { return Instance._data; } }
+        
 
         void Start()
         {

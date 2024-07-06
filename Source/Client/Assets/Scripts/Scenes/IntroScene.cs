@@ -26,7 +26,6 @@ public class IntroScene : BaseScene
     public override void Clear()
     {
         Managers.Clear();
-        CoreManagers.Clear();
     }
 }
 

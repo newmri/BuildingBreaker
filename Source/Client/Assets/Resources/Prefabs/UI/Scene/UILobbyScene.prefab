@@ -4975,7 +4975,7 @@ GameObject:
   - component: {fileID: 5479741715578176658}
   - component: {fileID: 3104954582245296494}
   m_Layer: 5
-  m_Name: Name_Text
+  m_Name: NickName_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4997,8 +4997,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: 33.4}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 49.6447, y: 33.4}
+  m_SizeDelta: {x: 259.2893, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5479741715578176658
 CanvasRenderer:
@@ -5028,7 +5028,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ryuen
+  m_text: "\uB2C9\uB124\uC784"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 640ca1534729fc3448a47f433d837da4, type: 2}
   m_sharedMaterial: {fileID: 5422675519717107838, guid: 640ca1534729fc3448a47f433d837da4, type: 2}
@@ -6120,7 +6120,7 @@ GameObject:
   - component: {fileID: 289775517706438122}
   - component: {fileID: 360681715136790125}
   m_Layer: 5
-  m_Name: Text_Value
+  m_Name: EXP_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8751,7 +8751,7 @@ GameObject:
   - component: {fileID: 329952401891584479}
   - component: {fileID: 1751005494418419298}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: EXP_Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8912,6 +8912,7 @@ GameObject:
   - component: {fileID: 7063087579997157947}
   - component: {fileID: 7252992519086270007}
   - component: {fileID: 6873991123953012607}
+  - component: {fileID: 3096286256917494632}
   m_Layer: 5
   m_Name: UILobbyScene
   m_TagString: Untagged
@@ -8977,6 +8978,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3096286256917494632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063087579997157946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54dfb109b1a4d7945aea5a5187862481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7127088879649678794
 GameObject:
   m_ObjectHideFlags: 0
@@ -10584,7 +10597,7 @@ GameObject:
   - component: {fileID: 4923878353408607750}
   - component: {fileID: 8068602793589790504}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Level_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

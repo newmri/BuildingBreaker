@@ -3,6 +3,8 @@ using UnityEngine;
 using System.IO;
 using System.Linq;
 using System.Text;
+using UnityCoreLibrary.Managers;
+using static UnityCoreLibrary.Managers.EventManager;
 public class JsonDataManager<T>
 {
     private string _fileName;
@@ -12,16 +14,13 @@ public class JsonDataManager<T>
     private byte[] _key;
     private byte[] _iv;
 
-    protected bool _isDirty = false;
+    private bool _isDirty = false;
 
     protected T _data;
 
     public bool IsLoaded { get; private set; } = false;
 
-    public JsonDataManager()
-    {
-
-    }
+    private EventManager _eventManager = new EventManager();
 
     public void Load()
     {
@@ -32,7 +31,7 @@ public class JsonDataManager<T>
         _fileName = Managers.Security.Encrypt(name, _key, _iv);
 
         _path = Application.persistentDataPath;
-        _fullPath = _path + _fileName;
+        _fullPath = _path + "/" + _fileName;
 
         if (false == File.Exists(_fullPath))
             return;
@@ -48,5 +47,21 @@ public class JsonDataManager<T>
             return;
 
         File.WriteAllText(_fullPath, Managers.Security.Encrypt(JsonUtility.ToJson(_data), _key, _iv));
+    }
+
+    public void AddListener(string eventType, OnEvent listener)
+    {
+        _eventManager.AddListener(eventType, listener);
+    }
+
+    public void OnUpdate(string eventType)
+    {
+        _eventManager.PostNotification(eventType);
+        _isDirty = true;
+    }
+
+    public void Clear()
+    {
+        _eventManager.Clear();
     }
 }

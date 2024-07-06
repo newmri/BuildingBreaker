@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7782923584243957843}
   - component: {fileID: 6664068310722731556}
+  - component: {fileID: 1779957470501242125}
   m_Layer: 5
   m_Name: UIPage
   m_TagString: Untagged
@@ -60,3 +61,15 @@ MonoBehaviour:
   m_Spacing: {x: 52, y: 45}
   m_Constraint: 0
   m_ConstraintCount: 6
+--- !u!114 &1779957470501242125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5966936290684558672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90654a934b67af44f8f620e7dbd703a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
