@@ -8,6 +8,11 @@ namespace UnityCoreLibrary
     {
         CSVLoader _CSVLoader = new CSVLoader();
 
+        public void LoadCSV<T>(string path, out Dictionary<string, T> dataList)
+        {
+            _CSVLoader.Load(path, out dataList);
+        }
+
         public void LoadCSV(string path, out List<Dictionary<string, object>> dataList)
         {
             _CSVLoader.Load(path, out dataList);

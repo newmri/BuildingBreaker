@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using UnityCoreLibrary.Managers;
 using static UnityCoreLibrary.Managers.EventManager;
-public class JsonDataManager<T>
+public class JsonDataManager<T> where T : new()
 {
     private string _fileName;
     private string _path;
@@ -22,7 +22,7 @@ public class JsonDataManager<T>
 
     private EventManager _eventManager = new EventManager();
 
-    public void Load()
+    public virtual void Load()
     {
         var name = typeof(T).Name;
         _key = Managers.Security.CreateKey(name);
@@ -34,7 +34,10 @@ public class JsonDataManager<T>
         _fullPath = _path + "/" + _fileName;
 
         if (false == File.Exists(_fullPath))
+        {
+            _data = new T();
             return;
+        }
 
         _data = JsonUtility.FromJson<T>(Managers.Security.Decrypt(File.ReadAllText(_fullPath), _key, _iv));
 

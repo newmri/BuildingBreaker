@@ -12,6 +12,43 @@ namespace UnityCoreLibrary
         string _lineSplit = @"\r\n|\n\r|\n|\r";
         char[] _trim = { '\"' };
 
+        public void Load<T>(string path, out Dictionary<string, T> dataList)
+        {
+            dataList = new Dictionary<string, T>();
+            TextAsset data = CoreManagers.Resource.Load<TextAsset>(path);
+
+            var lines = Regex.Split(data.text, _lineSplit);
+
+            if (lines.Length <= 1)
+                return;
+
+            var header = Regex.Split(lines[0], _split);
+            for (var i = 1; i < lines.Length; i++)
+            {
+                var values = Regex.Split(lines[i], _split);
+                if (values.Length == 0 || values[0] == "")
+                    continue;
+
+                for (var j = 0; j < header.Length && j < values.Length; j++)
+                {
+                    string value = values[j];
+
+                    object finalvalue = Parse(value);
+                    dataList[header[j]] = (T)finalvalue;
+                }
+            }
+        }
+
+        private object Parse(string value)
+        {
+            if (int.TryParse(value, out int intResult))
+                return intResult;
+            else if (float.TryParse(value, out float floatResult))
+                return floatResult;
+            else
+                return null;
+        }
+
         public void Load(string path, out List<Dictionary<string, object>> dataList)
         {
             dataList = new List<Dictionary<string, object>>();
@@ -34,17 +71,7 @@ namespace UnityCoreLibrary
                 {
                     string value = values[j];
 
-                    object finalvalue = value;
-                    int n;
-                    float f;
-                    if (int.TryParse(value, out n))
-                    {
-                        finalvalue = n;
-                    }
-                    else if (float.TryParse(value, out f))
-                    {
-                        finalvalue = f;
-                    }
+                    object finalvalue = Parse(value);
                     entry[header[j]] = finalvalue;
                 }
                 dataList.Add(entry);

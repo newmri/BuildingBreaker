@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 3021916855268535727}
   - component: {fileID: 6899355500958922213}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Key_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1062,7 +1062,7 @@ GameObject:
   - component: {fileID: 8006094716378270100}
   - component: {fileID: 1510742100053463831}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Energy_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7984,7 +7984,7 @@ GameObject:
   - component: {fileID: 2082217733425759600}
   - component: {fileID: 9175219059745340508}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Coin_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
