@@ -6,6 +6,8 @@ using System.Text;
 
 public class SecurityManager
 {
+    public bool DoEncrypt { get; set; } = false;
+
     public byte[] CreateKey(string str)
     {
         using (SHA256 sha256 = SHA256.Create())
@@ -24,6 +26,9 @@ public class SecurityManager
 
     public string Encrypt(string content, byte[] key, byte[] iv)
     {
+        if (false == DoEncrypt)
+            return content;
+
         using (Aes aesAlg = Aes.Create())
         {
             aesAlg.Key = key;
@@ -51,6 +56,9 @@ public class SecurityManager
 
     public string Decrypt(string content, byte[] key, byte[] iv)
     {
+        if (false == DoEncrypt)
+            return content;
+
         // URL Ssafe
         var base64Encrypted = content.Replace('-', '+').Replace('_', '/');
 

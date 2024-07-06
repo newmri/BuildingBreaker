@@ -64,6 +64,7 @@ public class Managers : MonoBehaviour
     {
         UserData.Save();
         SettingData.Save();
+        StageData.Save();
     }
 
     public static void Clear()

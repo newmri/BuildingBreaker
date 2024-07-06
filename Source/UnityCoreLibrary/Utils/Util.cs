@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -92,6 +93,18 @@ namespace UnityCoreLibrary
             }
 
             return copy as T;
+        }
+
+        public static int Copy<T>(ref T[] data, int newLength)
+        {
+            var originalLen = data.Length;
+
+            T[] newData = new T[newLength];
+
+            Array.Copy(data, newData, originalLen);
+            data = newData;
+
+            return originalLen;
         }
 
         public static GameObject FindChild(GameObject gameObject, string name = null, bool recursive = false)

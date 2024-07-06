@@ -29,20 +29,23 @@ public class UserData
 
 public class UserDataManager : JsonDataManager<UserData>
 {
-    public string NickName { get { return _data.NickName; } set { _data.NickName = value; OnUpdate(nameof(NickName)); } }
-    public byte Level { get { return _data.Level; } set { if (value > GetMax(nameof(Level))) return; _data.Level = value; OnUpdate(nameof(Level)); } }
-    public uint EXP { get { return _data.EXP; } set { _data.EXP = value; OnUpdate(nameof(EXP)); } }
-    public uint Coin { get { return _data.Coin; } set { if (value > GetMax(nameof(Coin))) return;  _data.Coin = value; OnUpdate(nameof(Coin)); } }
-    public ushort Energy { get { return _data.Energy; } set { if (value > GetMax(nameof(Energy))) return;  _data.Energy = value; OnUpdate(nameof(Energy)); } }
-    public ushort Key { get { return _data.Key; } set { if (value > GetMax(nameof(Key))) return;  _data.Key = value; OnUpdate(nameof(Key)); } }
+    public string NickName { get { return _data[0].NickName; } set { _data[0].NickName = value; OnUpdate(nameof(UserData.NickName)); } }
+    public byte Level { get { return _data[0].Level; } set { if (value > GetMax(nameof(UserData.Level))) return; _data[0].Level = value; OnUpdate(nameof(UserData.Level)); } }
+    public uint EXP { get { return _data[0].EXP; } set { _data[0].EXP = value; OnUpdate(nameof(UserData.EXP)); } }
+    public uint Coin { get { return _data[0].Coin; } set { if (value > GetMax(nameof(UserData.Coin))) return;  _data[0].Coin = value; OnUpdate(nameof(UserData.Coin)); } }
+    public ushort Energy { get { return _data[0].Energy; } set { if (value > GetMax(nameof(UserData.Energy))) return;  _data[0].Energy = value; OnUpdate(nameof(UserData.Energy)); } }
+    public ushort Key { get { return _data[0].Key; } set { if (value > GetMax(nameof(UserData.Key))) return;  _data[0].Key = value; OnUpdate(nameof(UserData.Key)); } }
 
-    Dictionary<string, object> _defaultUserData;
-    Dictionary<string, int> _maxUserData;
-    Dictionary<int, Dictionary<string, object>> _levelUserData;
+    private Dictionary<string, object> _defaultUserData;
+    private Dictionary<string, int> _maxUserData;
+    private Dictionary<int, Dictionary<string, object>> _levelUserData;
 
-    public override void Load()
+    public void Load()
     {
-        base.Load();
+        if (IsLoaded)
+            return;
+
+        Load(1);
 
         CoreManagers.Data.LoadCSV("Data/UserData/DefaultUserData", out _defaultUserData);
         CoreManagers.Data.LoadCSV("Data/UserData/MaxUserData", out _maxUserData);
@@ -64,6 +67,6 @@ public class UserDataManager : JsonDataManager<UserData>
 
     public int GetMaxExp(byte level)
     {
-        return (int)_levelUserData[level][nameof(EXP)];
+        return (int)_levelUserData[level][nameof(UserData.EXP)];
     }
 }

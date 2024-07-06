@@ -14,5 +14,10 @@ public class SettingData
 
 public class SettingDataManager : JsonDataManager<SettingData>
 {
-    public byte Language { get { return _data.Language; } set { _data.Language = value; OnUpdate(nameof(Language)); } }
+    public byte Language { get { return _data[0].Language; } set { _data[0].Language = value; OnUpdate(nameof(Language)); } }
+
+    public void Load()
+    {
+        Load(1);
+    }
 }

@@ -94,12 +94,12 @@ public class UILobbyScene : UIScene
 
     public void OnUpdateEnergy()
     {
-        _energy.text = Managers.UserData.Energy.ToString() + " / " + Managers.UserData.GetMax(nameof(Managers.UserData.Energy));
+        _energy.text = Managers.UserData.Energy.ToString() + " / " + Managers.UserData.GetMax(nameof(UserData.Energy));
     }
 
     public void OnUpdateKey()
     {
-        _key.text = Managers.UserData.Key.ToString() + " / " + Managers.UserData.GetMax(nameof(Managers.UserData.Key));
+        _key.text = Managers.UserData.Key.ToString() + " / " + Managers.UserData.GetMax(nameof(UserData.Key));
     }
 
 }

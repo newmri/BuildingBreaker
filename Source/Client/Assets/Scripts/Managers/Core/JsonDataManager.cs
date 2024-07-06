@@ -5,6 +5,30 @@ using System.Linq;
 using System.Text;
 using UnityCoreLibrary.Managers;
 using static UnityCoreLibrary.Managers.EventManager;
+using NUnit.Framework;
+
+public static class JsonHelper
+{
+    public static T[] FromJson<T>(string json)
+    {
+        Wrapper<T> wrapper = JsonUtility.FromJson<Wrapper<T>>(json);
+        return wrapper.data;
+    }
+
+    public static string ToJson<T>(T[] array)
+    {
+        Wrapper<T> wrapper = new Wrapper<T>();
+        wrapper.data = array;
+        return JsonUtility.ToJson(wrapper);
+    }
+
+    [Serializable]
+    private class Wrapper<T>
+    {
+        public T[] data;
+    }
+}
+
 public class JsonDataManager<T> where T : new()
 {
     private string _fileName;
@@ -16,13 +40,13 @@ public class JsonDataManager<T> where T : new()
 
     private bool _isDirty = false;
 
-    protected T _data;
+    protected T[] _data;
 
     public bool IsLoaded { get; private set; } = false;
 
     private EventManager _eventManager = new EventManager();
 
-    public virtual void Load()
+    public void Load(int count)
     {
         var name = typeof(T).Name;
         _key = Managers.Security.CreateKey(name);
@@ -35,21 +59,21 @@ public class JsonDataManager<T> where T : new()
 
         if (false == File.Exists(_fullPath))
         {
-            _data = new T();
+            _data = new T[count];
+            for(int i = 0; i < count; ++i)
+                _data[i] = new T();
+
             return;
         }
 
-        _data = JsonUtility.FromJson<T>(Managers.Security.Decrypt(File.ReadAllText(_fullPath), _key, _iv));
+        _data = JsonHelper.FromJson<T>(Managers.Security.Decrypt(File.ReadAllText(_fullPath), _key, _iv));
 
         IsLoaded = true;
     }
 
     public void Save()
     {
-        if (false == _isDirty)
-            return;
-
-        File.WriteAllText(_fullPath, Managers.Security.Encrypt(JsonUtility.ToJson(_data), _key, _iv));
+        File.WriteAllText(_fullPath, Managers.Security.Encrypt(JsonHelper.ToJson(_data), _key, _iv));
     }
 
     public void AddListener(string eventType, OnEvent listener)
