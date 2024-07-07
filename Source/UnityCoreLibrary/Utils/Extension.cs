@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -16,7 +17,14 @@ namespace UnityCoreLibrary
 			return Util.GetOrAddComponent<T>(go);
 		}
 
-		public static bool IsValid(this GameObject go)
+        public static int DestroyAndGetSiblingIndex(this GameObject go)
+        {
+            var sibilingIndex = go.transform.GetSiblingIndex();
+            GameObject.Destroy(go);
+			return sibilingIndex;
+        }
+
+        public static bool IsValid(this GameObject go)
 		{
 			return go != null && go.activeSelf;
 		}

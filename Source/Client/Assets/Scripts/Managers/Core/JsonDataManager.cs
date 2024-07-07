@@ -73,6 +73,9 @@ public class JsonDataManager<T> where T : new()
 
     public void Save()
     {
+        if (false == _isDirty)
+            return;
+
         File.WriteAllText(_fullPath, Managers.Security.Encrypt(JsonHelper.ToJson(_data), _key, _iv));
     }
 
@@ -81,9 +84,9 @@ public class JsonDataManager<T> where T : new()
         _eventManager.AddListener(eventType, listener);
     }
 
-    public void OnUpdate(string eventType)
+    public void OnUpdate(string eventType, int index = 0)
     {
-        _eventManager.PostNotification(eventType);
+        _eventManager.PostNotification(eventType, index);
         _isDirty = true;
     }
 

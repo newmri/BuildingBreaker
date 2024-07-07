@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.ConstrainedExecution;
 using UnityCoreLibrary;
 using UnityEngine;
 using UnityEngine.Diagnostics;
@@ -10,7 +11,7 @@ using UnityEngine.UI;
 public class UIStagePopup : UIPopup
 {
     [SerializeField]
-    private int MAX_STAGE = 20;
+    private int PAGE_MAX_STAGE = 20;
 
     enum GameObjects
     {
@@ -26,8 +27,7 @@ public class UIStagePopup : UIPopup
     }
 
     private List<UIPage> _pageList = new List<UIPage>();
-    private List<UILockStage> _lockList = new List<UILockStage>();
-    private List<UIOpenStage> _openList = new List<UIOpenStage>();
+    private List<UIBase> _stageList = new List<UIBase>();
     private GameObject _pageNavi;
 
     private GameObject _gird;
@@ -50,6 +50,30 @@ public class UIStagePopup : UIPopup
         GetButton((int)Buttons.Next_Button).gameObject.BindEvent(OnClickNextButton);
 
         Clear();
+
+        Managers.StageData.AddListener(nameof(StageData.IsOpen), OnUpdateOpen);
+        Managers.StageData.AddListener(nameof(StageData.StartCount), OnUpdateStarCount);
+    }
+
+    public void OnUpdateOpen(int index)
+    {
+        if (-1 == index)
+            return;
+
+        var sibilingIndex = _stageList[index].gameObject.DestroyAndGetSiblingIndex();
+        _stageList.RemoveAt(index);
+
+        AddStage(Managers.StageData.GetStageData(index));
+
+        _stageList[index].transform.SetSiblingIndex(sibilingIndex);
+    }
+
+    public void OnUpdateStarCount(int index)
+    {
+        if (-1 == index)
+            return;
+
+        ((UIOpenStage)_stageList[index]).SetStarCount(Managers.StageData.GetStarCount(index));
     }
 
     public void Clear()
@@ -58,23 +82,22 @@ public class UIStagePopup : UIPopup
 
         Util.DeleteAllChildrens(_pageNavi);
 
-        AddStagePage();
-        AddOpenStage();
+        var stageData = Managers.StageData.GetStageData();
+        var stageCount = stageData.Length;
+        if (0 == stageCount)
+            return;
 
-        int stageCount = Managers.StageData.GetStageCount();
-
-        for (int i = 1; i < stageCount; ++i)
+        for (var i = 0; i < stageCount; ++i)
         {
-            if (0 == (i % MAX_STAGE))
+            if (0 == (i % PAGE_MAX_STAGE))
                 AddStagePage();
 
-            AddLockStage();
+            AddStage(stageData[i]);
         }
 
         if(0 < _pageList.Count)
         {
             Vector3 pageStep = new Vector3(_pageList[0].GetComponent<RectTransform>().rect.width, 0, 0);
-
             _swipeController.SetPageStep(-pageStep);
 
         }
@@ -96,16 +119,36 @@ public class UIStagePopup : UIPopup
     }
 
 
-    public void AddLockStage()
+    private void AddStage(StageData stageData)
     {
-        GameObject go = CoreManagers.Resource.Instantiate("UI/Stage/UILockStage", _pageList[_pageList.Count - 1].transform);
-        _lockList.Add(go.GetOrAddComponent<UILockStage>());
+        if (stageData.IsOpen)
+        {
+            var openStage = AddOpenStage(stageData.StageID);
+            openStage.SetStageID(stageData.StageID);
+            openStage.SetStarCount(stageData.StartCount);
+            openStage.SetMaxStarCount(Managers.StageData.GetMaxStarCount(stageData.StageID));
+        }
+        else
+            AddLockStage(stageData.StageID);
     }
 
-    public void AddOpenStage()
+    private void AddLockStage(int index)
     {
-        GameObject go = CoreManagers.Resource.Instantiate("UI/Stage/UIOpenStage", _pageList[_pageList.Count - 1].transform);
-        _openList.Add(go.GetOrAddComponent<UIOpenStage>());
+        GameObject go = CoreManagers.Resource.Instantiate("UI/Stage/UILockStage", _pageList[GetPage(index)].transform);
+        _stageList.Add(go.GetOrAddComponent<UILockStage>());
+    }
+
+    private UIOpenStage AddOpenStage(int index)
+    {
+        GameObject go = CoreManagers.Resource.Instantiate("UI/Stage/UIOpenStage", _pageList[GetPage(index)].transform);
+        var openStage = go.GetOrAddComponent<UIOpenStage>();
+        _stageList.Insert(index, openStage);
+        return openStage;
+    }
+
+    private int GetPage(int index)
+    {
+       return index / PAGE_MAX_STAGE;
     }
 
     public void OnClickPrevButton(PointerEventData evt)

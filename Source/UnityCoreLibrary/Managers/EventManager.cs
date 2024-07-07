@@ -7,7 +7,7 @@ namespace UnityCoreLibrary.Managers
 {
     public class EventManager
     {
-        public delegate void OnEvent();
+        public delegate void OnEvent(int index);
 
         private Dictionary<string, List<OnEvent>> _listners = new Dictionary<string, List<OnEvent>>();
 
@@ -17,7 +17,7 @@ namespace UnityCoreLibrary.Managers
             if(_listners.TryGetValue(eventType, out listnerList))
             {
                 listnerList.Add(listener);
-                listener();
+                listener(-1);
                 return;
             }
 
@@ -26,19 +26,19 @@ namespace UnityCoreLibrary.Managers
 
             _listners.Add(eventType, listnerList);
 
-            listener();
+            listener(-1);
         }
 
         public void RemoveEvent(string eventType) => _listners.Remove(eventType);
 
-        public void PostNotification(string eventType)
+        public void PostNotification(string eventType, int index)
         {
             List<OnEvent> listnerList = null;
             if (false == _listners.TryGetValue(eventType, out listnerList))
                 return;
 
             foreach (var listener in listnerList)
-                listener();
+                listener(index);
         }
 
         public void Clear()

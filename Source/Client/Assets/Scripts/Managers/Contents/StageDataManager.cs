@@ -24,8 +24,14 @@ public class StageData
 
 public class StageDataManager : JsonDataManager<StageData>
 {
+    public StageData[] GetStageData() { return _data; }
+    public StageData GetStageData(int index) { return _data[index]; }
     public bool IsOpen(int stageID) { return _data[stageID].IsOpen; }
-    public void SetOpen(int stageID, bool isOpen) { _data[stageID].IsOpen = isOpen; OnUpdate(nameof(StageData.IsOpen)); }
+    public void SetOpen(int stageID, bool isOpen) { _data[stageID].IsOpen = isOpen; OnUpdate(nameof(StageData.IsOpen), stageID); }
+    public byte GetStarCount(int stageID) { return _data[stageID].StartCount; }
+    public void SetStarCount(int stageID, byte startCount) { _data[stageID].StartCount = startCount; OnUpdate(nameof(StageData.StartCount), stageID); }
+
+    public byte GetMaxStarCount(int stageID) { return (byte)(int)_stageList[stageID]["MaxStar"]; }
 
     private Dictionary<int, Dictionary<string, object>> _stageList;
 
@@ -47,6 +53,8 @@ public class StageDataManager : JsonDataManager<StageData>
                 _data[i].StageID = i;
                 SetOpen(i, Convert.ToBoolean((int)_stageList[i][nameof(StageData.IsOpen)]));
             }
+
+            return;
         }
 
         if (_data.Length < stageCount)

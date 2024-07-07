@@ -54,6 +54,9 @@ public class UILobbyScene : UIScene
         _energy = this.GetTextMesh((int)TextMeshProUGUIs.Energy_Text);
         _key = this.GetTextMesh((int)TextMeshProUGUIs.Key_Text);
 
+        GetButton((int)Buttons.Setting_Button).gameObject.BindEvent(OnClickSettingButton);
+        GetButton((int)Buttons.Play_Button).gameObject.BindEvent(OnClickPlayButton);
+
         Managers.UserData.AddListener(nameof(Managers.UserData.Level), OnUpdateLevel);
         Managers.UserData.AddListener(nameof(Managers.UserData.EXP), OnUpdateEXP);
 
@@ -61,8 +64,6 @@ public class UILobbyScene : UIScene
         Managers.UserData.AddListener(nameof(Managers.UserData.Energy), OnUpdateEnergy);
         Managers.UserData.AddListener(nameof(Managers.UserData.Key), OnUpdateKey);
 
-        GetButton((int)Buttons.Setting_Button).gameObject.BindEvent(OnClickSettingButton);
-        GetButton((int)Buttons.Play_Button).gameObject.BindEvent(OnClickPlayButton);
     }
 
     public void OnClickSettingButton(PointerEventData evt)
@@ -75,29 +76,29 @@ public class UILobbyScene : UIScene
         Managers.UI.ShowPopupUI<UIStagePopup>();
     }
 
-    public void OnUpdateLevel()
+    public void OnUpdateLevel(int index)
     {
         _level.text = Managers.UserData.Level.ToString();
     }
 
-    public void OnUpdateEXP()
+    public void OnUpdateEXP(int index)
     {
         _expSlider.maxValue = Managers.UserData.GetMaxExp(Managers.UserData.Level);
         _expSlider.value = Managers.UserData.EXP;
         _expText.text = _expSlider.value.ToString() + " / " + _expSlider.maxValue.ToString();
     }
 
-    public void OnUpdateCoin()
+    public void OnUpdateCoin(int index)
     {
         _coin.text = Managers.UserData.Coin.ToString();
     }
 
-    public void OnUpdateEnergy()
+    public void OnUpdateEnergy(int index)
     {
         _energy.text = Managers.UserData.Energy.ToString() + " / " + Managers.UserData.GetMax(nameof(UserData.Energy));
     }
 
-    public void OnUpdateKey()
+    public void OnUpdateKey(int index)
     {
         _key.text = Managers.UserData.Key.ToString() + " / " + Managers.UserData.GetMax(nameof(UserData.Key));
     }
