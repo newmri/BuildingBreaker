@@ -30,8 +30,8 @@ public class StageDataManager : JsonDataManager<StageData>
     public void SetOpen(int stageID, bool isOpen) { _data[stageID].IsOpen = isOpen; OnUpdate(nameof(StageData.IsOpen), stageID); }
     public byte GetStarCount(int stageID) { return _data[stageID].StartCount; }
     public void SetStarCount(int stageID, byte startCount) { _data[stageID].StartCount = startCount; OnUpdate(nameof(StageData.StartCount), stageID); }
-
     public byte GetMaxStarCount(int stageID) { return (byte)(int)_stageList[stageID]["MaxStar"]; }
+    public int CurrentStageID { get; set; } = -1;
 
     private Dictionary<int, Dictionary<string, object>> _stageList;
 

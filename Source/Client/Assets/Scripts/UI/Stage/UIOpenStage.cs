@@ -1,6 +1,8 @@
 using TMPro;
 using UnityCoreLibrary;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UIOpenStage : UIBase
 {
@@ -14,6 +16,11 @@ public class UIOpenStage : UIBase
         Stars,
     }
 
+    enum Buttons
+    {
+        UIOpenStage,
+    }
+
     private int _stageID;
     private byte _starCount;
     private byte _maxStarCount;
@@ -23,8 +30,11 @@ public class UIOpenStage : UIBase
     {
         Bind<TextMeshProUGUI>(typeof(TextMeshProUGUIs));
         Bind<GameObject>(typeof(GameObjects));
+        Bind<Button>(typeof(Buttons));
 
         this.GetTextMesh((int)TextMeshProUGUIs.StageID_Text).text = (_stageID + 1).ToString();
+
+        GetButton((int)Buttons.UIOpenStage).gameObject.BindEvent(OnClickButton);
 
         UpdateStarCount();
 
@@ -60,5 +70,11 @@ public class UIOpenStage : UIBase
     public void SetMaxStarCount(byte maxStarCount)
     {
         _maxStarCount = maxStarCount;
+    }
+
+    public void OnClickButton(PointerEventData evt)
+    {
+        Managers.StageData.CurrentStageID = _stageID;
+        CoreManagers.Scene.LoadScene(CoreDefine.Scene.Game);
     }
 }
