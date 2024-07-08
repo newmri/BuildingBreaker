@@ -27,15 +27,6 @@ public class UILobbyScene : UIScene
         EXP_Slider,
     }
 
-    private TextMeshProUGUI _level;
-
-    private TextMeshProUGUI _expText;
-    private Slider _expSlider;
-
-    private TextMeshProUGUI _coin;
-    private TextMeshProUGUI _energy;
-    private TextMeshProUGUI _key;
-
     public override void Init()
     {
         base.Init();
@@ -45,14 +36,6 @@ public class UILobbyScene : UIScene
         Bind<Slider>(typeof(Sliders));
 
         this.GetTextMesh((int)TextMeshProUGUIs.NickName_Text).text = Managers.UserData.NickName;
-
-        _level = this.GetTextMesh((int)TextMeshProUGUIs.Level_Text);
-        _expSlider = GetSlider((int)Sliders.EXP_Slider);
-        _expText = this.GetTextMesh((int)TextMeshProUGUIs.EXP_Text);
-
-        _coin = this.GetTextMesh((int)TextMeshProUGUIs.Coin_Text);
-        _energy = this.GetTextMesh((int)TextMeshProUGUIs.Energy_Text);
-        _key = this.GetTextMesh((int)TextMeshProUGUIs.Key_Text);
 
         GetButton((int)Buttons.Setting_Button).gameObject.BindEvent(OnClickSettingButton);
         GetButton((int)Buttons.Play_Button).gameObject.BindEvent(OnClickPlayButton);
@@ -78,29 +61,30 @@ public class UILobbyScene : UIScene
 
     public void OnUpdateLevel(int index)
     {
-        _level.text = Managers.UserData.Level.ToString();
+        this.GetTextMesh((int)TextMeshProUGUIs.Level_Text).text = Managers.UserData.Level.ToString();
     }
 
     public void OnUpdateEXP(int index)
     {
-        _expSlider.maxValue = Managers.UserData.GetMaxExp(Managers.UserData.Level);
-        _expSlider.value = Managers.UserData.EXP;
-        _expText.text = _expSlider.value.ToString() + " / " + _expSlider.maxValue.ToString();
+        var slider = GetSlider((int)Sliders.EXP_Slider);
+        slider.maxValue = Managers.UserData.GetMaxExp(Managers.UserData.Level);
+        slider.value = Managers.UserData.EXP;
+        this.GetTextMesh((int)TextMeshProUGUIs.EXP_Text).text = slider.value.ToString() + " / " + slider.maxValue.ToString();
     }
 
     public void OnUpdateCoin(int index)
     {
-        _coin.text = Managers.UserData.Coin.ToString();
+        this.GetTextMesh((int)TextMeshProUGUIs.Coin_Text).text = Managers.UserData.Coin.ToString();
     }
 
     public void OnUpdateEnergy(int index)
     {
-        _energy.text = Managers.UserData.Energy.ToString() + " / " + Managers.UserData.GetMax(nameof(UserData.Energy));
+        this.GetTextMesh((int)TextMeshProUGUIs.Energy_Text).text = Managers.UserData.Energy.ToString() + " / " + Managers.UserData.GetMax(nameof(UserData.Energy));
     }
 
     public void OnUpdateKey(int index)
     {
-        _key.text = Managers.UserData.Key.ToString() + " / " + Managers.UserData.GetMax(nameof(UserData.Key));
+        this.GetTextMesh((int)TextMeshProUGUIs.Key_Text).text = Managers.UserData.Key.ToString() + " / " + Managers.UserData.GetMax(nameof(UserData.Key));
     }
 
 }

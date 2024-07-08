@@ -17,7 +17,6 @@ public class UIOpenStage : UIBase
     private int _stageID;
     private byte _starCount;
     private byte _maxStarCount;
-    private GameObject _stars;
 
     private bool isLoaded = false;
     public override void Init()
@@ -27,8 +26,6 @@ public class UIOpenStage : UIBase
 
         this.GetTextMesh((int)TextMeshProUGUIs.StageID_Text).text = (_stageID + 1).ToString();
 
-        _stars = GetObject((int)GameObjects.Stars);
-
         UpdateStarCount();
 
         isLoaded = true;
@@ -36,14 +33,14 @@ public class UIOpenStage : UIBase
 
     private void UpdateStarCount()
     {
-        Util.DeleteAllChildrens(_stars);
+        Util.DeleteAllChildrens(GetObject((int)GameObjects.Stars));
 
         for (var i = 0; i < _maxStarCount; ++i)
         {
             if (i < _starCount)
-                CoreManagers.Resource.Instantiate("UI/Stage/Stars/On", _stars.gameObject.transform);
+                CoreManagers.Resource.Instantiate("UI/Stage/Stars/On", GetObject((int)GameObjects.Stars).gameObject.transform);
             else
-                CoreManagers.Resource.Instantiate("UI/Stage/Stars/Off", _stars.gameObject.transform);
+                CoreManagers.Resource.Instantiate("UI/Stage/Stars/Off", GetObject((int)GameObjects.Stars).gameObject.transform);
         }
     }
 

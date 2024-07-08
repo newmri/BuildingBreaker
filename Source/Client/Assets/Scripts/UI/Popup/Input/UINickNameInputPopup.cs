@@ -28,7 +28,6 @@ public class UINickNameInputPopup : UIPopup
 
     private readonly int _nickNameMinLen = 1;
     private readonly int _nickNameMaxLen = 10;
-    private TMP_InputField _nickNameInput;
 
     public override void Init()
     {
@@ -42,8 +41,7 @@ public class UINickNameInputPopup : UIPopup
         this.GetTextMesh((int)TextMeshProUGUIs.Placeholder_Text).GetComponent<LocalizeStringEvent>().StringReference.SetReference(_placeholder.Table, _placeholder.Key);
         this.GetTextMesh((int)TextMeshProUGUIs.Info_Text).GetComponent<LocalizeStringEvent>().StringReference.SetReference(_info.Table, _info.Key);
 
-        _nickNameInput = this.GetInputText((int)TMP_InputFields.NickName_Input);
-        _nickNameInput.characterLimit = _nickNameMaxLen;
+        this.GetInputText((int)TMP_InputFields.NickName_Input).characterLimit = _nickNameMaxLen;
 
         GetButton((int)Buttons.OK_Button).gameObject.BindEvent(OnClickOKButton);
     }
@@ -64,14 +62,16 @@ public class UINickNameInputPopup : UIPopup
             return;
         }
 
-        Managers.UserData.NickName = _nickNameInput.text;
+        Managers.UserData.NickName = this.GetInputText((int)TMP_InputFields.NickName_Input).text;
         Managers.UI.ClosePopupUI();
     }
 
     private bool IsValidNickNameLen()
     {
-        bool isValid = (_nickNameInput.text.Length >= _nickNameMinLen &&
-                        _nickNameInput.text.Length <= _nickNameMaxLen
+        var nickNameInput = this.GetInputText((int)TMP_InputFields.NickName_Input);
+
+        bool isValid = (nickNameInput.text.Length >= _nickNameMinLen &&
+                        nickNameInput.text.Length <= _nickNameMaxLen
                         );
 
         return isValid;
