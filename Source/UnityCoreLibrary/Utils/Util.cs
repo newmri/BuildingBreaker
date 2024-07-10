@@ -34,7 +34,7 @@ namespace UnityCoreLibrary
 
         public static T GetOrCreateGameObject<T>(string path, string name) where T : UnityEngine.Component
         {
-            UnityEngine.Object obj = GameObject.FindObjectOfType(typeof(T));
+            UnityEngine.Object obj = GameObject.FindFirstObjectByType(typeof(T));
             if (obj == null)
             {
                 GameObject gameObject = CoreManagers.Resource.Instantiate(path);
@@ -201,47 +201,6 @@ namespace UnityCoreLibrary
         public static bool IsInRange(Vector2Int dist, float range)
         {
             return dist.magnitude <= range;
-        }
-
-        public static void MakeTrajectoryLine(LineRenderer lineRenderer, Rigidbody2D rigidbody, Vector2 pos, Vector2 velocity, int steps)
-        {
-            Vector3[] trajectory = GetTrajectoryVector3(rigidbody, pos, velocity, steps);
-            lineRenderer.positionCount = trajectory.Length;
-            lineRenderer.SetPositions(trajectory);
-        }
-
-        public static Vector3[] GetTrajectoryVector3(Rigidbody2D rigidbody, Vector2 pos, Vector2 velocity, int steps)
-        {
-            Vector2[] trajectory = GetTrajectoryVector2(rigidbody, pos, velocity, steps);
-            Vector3[] trajectory3 = new Vector3[trajectory.Length];
-
-            for (int i = 0; i < trajectory3.Length; ++i)
-            {
-                trajectory3[i] = trajectory[i];
-            }
-
-            return trajectory3;
-        }
-
-        public static Vector2[] GetTrajectoryVector2(Rigidbody2D rigidbody, Vector2 pos, Vector2 velocity, int steps)
-        {
-            Vector2[] trajectory = new Vector2[steps];
-
-            float timeStep = Time.fixedDeltaTime / Physics2D.velocityIterations;
-            Vector2 gravityAccel = Physics2D.gravity * rigidbody.gravityScale * timeStep * timeStep;
-
-            float drag = 1.0f - timeStep * rigidbody.drag;
-            Vector2 moveStep = velocity * timeStep;
-
-            for (int i = 0; i < steps; ++i)
-            {
-                moveStep += gravityAccel;
-                moveStep *= drag;
-                pos += moveStep;
-                trajectory[i] = pos;
-            }
-
-            return trajectory;
         }
 
         public static bool IsMouseInJoystickArea(Vector3 mousePos)

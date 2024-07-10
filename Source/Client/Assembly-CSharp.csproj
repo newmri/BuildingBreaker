@@ -87,6 +87,7 @@
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplineEndless.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\Following.cs" />
     <Compile Include="Assets\LeanTween\Testing\TestingRotate.cs" />
+    <Compile Include="Assets\Scripts\Controllers\PlayerController.cs" />
     <Compile Include="Assets\LeanTween\Testing\Testing240.cs" />
     <Compile Include="Assets\LeanTween\Testing\Scripts\LeanPool.cs" />
     <Compile Include="Assets\LeanTween\Testing\PerformanceTests.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Assets\Scripts\UI\Popup\UIPopup.cs" />
     <Compile Include="Assets\Scripts\UI\UIPage.cs" />
     <Compile Include="Assets\Scripts\Managers\Core\UIManager.cs" />
+    <Compile Include="Assets\Scripts\Controllers\BaseController.cs" />
     <Compile Include="Assets\LeanTween\Framework\LeanTween.cs" />
     <Compile Include="Assets\Scripts\Scenes\IntroScene.cs" />
     <Compile Include="Assets\LeanTween\Framework\LeanSmooth.cs" />

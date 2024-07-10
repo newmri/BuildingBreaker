@@ -16,7 +16,7 @@ namespace UnityCoreLibrary
         {
             get
             { 
-                return GameObject.FindObjectOfType<BaseScene>(); 
+                return GameObject.FindFirstObjectByType<BaseScene>(); 
             } 
         }
 
