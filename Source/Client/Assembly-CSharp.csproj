@@ -81,6 +81,8 @@
     <Compile Include="Assets\LeanTween\Testing\FollowingTests.cs" />
     <Compile Include="Assets\Scripts\UI\Scenes\UILoadingScene.cs" />
     <Compile Include="Assets\Scripts\UI\UICheckIcon.cs" />
+    <Compile Include="Assets\Scripts\Managers\Core\ObjectManager.cs" />
+    <Compile Include="Assets\Scripts\Skills\Skill.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\TestingUnitTests.cs" />
     <Compile Include="Assets\LeanTween\Testing\TestingIssue2.cs" />
     <Compile Include="Assets\Scripts\UI\Scenes\UILobbyScene.cs" />
@@ -104,6 +106,7 @@
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralUISpace.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplines.cs" />
     <Compile Include="Assets\Scripts\UI\Stage\UIOpenStage.cs" />
+    <Compile Include="Assets\Scripts\Managers\Contents\SkillManager.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralCameraShake.cs" />
     <Compile Include="Assets\Scripts\UI\Scenes\UITitleScene.cs" />
     <Compile Include="Assets\Scripts\Managers\Contents\StageDataManager.cs" />

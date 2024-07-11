@@ -3,7 +3,7 @@ using UnityEngine;
 public enum ObjectState : byte
 {
     IDLE = 0,
-    ATTACK,
+    SKILL,
 };
 
 public class BaseController : MonoBehaviour

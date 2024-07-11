@@ -26,10 +26,12 @@ public class Managers : MonoBehaviour
     SecurityManager _security = new SecurityManager();
     LangugaeManager _langugae = new LangugaeManager();
     UIManager _ui = new UIManager();
+    ObjectManager _object = new ObjectManager();
 
     public static SecurityManager Security { get { return Instance._security; } }
     public static LangugaeManager Langugae { get { return Instance._langugae; } }
     public static UIManager UI { get { return Instance._ui; } }
+    public static ObjectManager Object { get { return Instance._object; } }
 
     #endregion
 
@@ -72,5 +74,6 @@ public class Managers : MonoBehaviour
         UI.Clear();
         SettingData.Clear();
         UserData.Clear();
+        Object.Clear();
     }
 }

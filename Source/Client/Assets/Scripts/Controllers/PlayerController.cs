@@ -1,12 +1,20 @@
+using System.Collections.Generic;
 using UnityCoreLibrary.Animation;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerController : BaseController
 {
     private Animator _animator;
+    private SkillManager _skillManager;
 
     protected override void Init()
     {
+        _skillManager = GetComponent<SkillManager>();
+        _skillManager.Init();
+        _skillManager.AddSkill(1);
+        _skillManager.AddSkill(2);
+
         _animator = GetComponent<Animator>();
         base.Init();
     }
@@ -18,21 +26,25 @@ public class PlayerController : BaseController
         if (base.UpdateController())
             return true;
 
+        var isUpdated = false;
+
         switch (State)
         {
-            case ObjectState.ATTACK:
-                UpdateAttack();
-                return true;
+            case ObjectState.SKILL:
+                UpdateSkill();
+                isUpdated = true;
+                break;
         }
 
-        return false;
+
+        return isUpdated;
     }
 
     protected override void UpdateAnimation()
     {
         switch (State)
         {
-            case ObjectState.ATTACK:
+            case ObjectState.SKILL:
                 _animator.SetBool("OnAttack", true, () =>
                 {
                     _animator.SetBool("OnAttack", false);
@@ -44,16 +56,23 @@ public class PlayerController : BaseController
 
     }
 
-    protected virtual void UpdateAttack()
+    protected virtual void UpdateSkill()
     {
 
     }
 
     private void GetInput()
     {
-        if (Input.GetKey(KeyCode.A))
-        {
-            State = ObjectState.ATTACK;
-        }
+        
+    }
+
+    public void UseSkill(byte skillID)
+    {
+        if (State == ObjectState.SKILL)
+            return;
+
+        State = ObjectState.SKILL;
+
+        _skillManager.UseSkill(skillID);
     }
 }
