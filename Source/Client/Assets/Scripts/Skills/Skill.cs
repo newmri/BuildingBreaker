@@ -14,6 +14,11 @@ public class Skill
     public float ElapsedCoolTime { get; private set; } = 0.0f;
     public float CoolTime { get; private set; } = 1.0f;
 
+    public bool CanUseSkill()
+    {
+        return 0.0f == ElapsedCoolTime;
+    }
+
     public void UseSkill()
     {
         UsedSkill = true;

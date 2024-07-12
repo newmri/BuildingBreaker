@@ -20,7 +20,7 @@ public class SkillManager : MonoBehaviour
                 continue;
 
             skill.ElapseCoolTime(time);
-            _uiGameScene.UpdateSkillCoolTime(skill.SkillID, skill.ElapsedCoolTime / 1.0f);
+            _uiGameScene.UpdateSkillCoolTime(skill.SkillID, skill.ElapsedCoolTime / skill.CoolTime);
         }
     }
 
@@ -28,6 +28,11 @@ public class SkillManager : MonoBehaviour
     {
         _skillList.Add(skillID, new Skill(skillID));
         _uiGameScene.AddSkill(skillID);
+    }
+
+    public bool CanUseSkill(byte skillID)
+    {
+        return _skillList[skillID].CanUseSkill();
     }
 
     public void UseSkill(byte skillID)

@@ -68,7 +68,7 @@ public class PlayerController : BaseController
 
     public void UseSkill(byte skillID)
     {
-        if (State == ObjectState.SKILL)
+        if (State == ObjectState.SKILL || false == _skillManager.CanUseSkill(skillID))
             return;
 
         State = ObjectState.SKILL;
