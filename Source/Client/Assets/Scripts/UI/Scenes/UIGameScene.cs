@@ -22,8 +22,8 @@ public class UIGameScene : UIScene
         SkillCoolTime_Image_2,
     }
 
+    private List<byte> _skillSlot = new List<byte>();
     private Dictionary<byte, Images> _skillCoolTimeList = new Dictionary<byte, Images>();
-    private Dictionary<byte, byte> _skillSlot = new Dictionary<byte, byte>();
 
     public override void Init()
     {
@@ -46,15 +46,19 @@ public class UIGameScene : UIScene
     public void OnClickSkillButton(PointerEventData evt)
     {
         var name = evt.selectedObject.name;
-        var slot = byte.Parse(name[name.Length - 1].ToString());
+        var slot = byte.Parse(name[name.Length - 1].ToString()) - 1;
 
         Managers.Object.Player.UseSkill(_skillSlot[slot]);
     }
 
     public void AddSkill(byte skillID)
     {
-        _skillCoolTimeList.Add(skillID, Images.SkillCoolTime_Image_1 + _skillCoolTimeList.Count);
-        _skillSlot.Add((byte)_skillCoolTimeList.Count, skillID);
+        _skillSlot.Add(skillID);
+
+        var currCount = _skillCoolTimeList.Count;
+        _skillCoolTimeList.Add(skillID, Images.SkillCoolTime_Image_1 + currCount);
+
+        GetButton((int)Buttons.Skill_Button_1 + currCount).GetComponent<Image>().sprite = Managers.SkillData.GetSprite(skillID);
     }
 
     public void UpdateSkillCoolTime(byte skillID, float ratio)

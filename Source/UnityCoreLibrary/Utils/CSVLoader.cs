@@ -46,7 +46,7 @@ namespace UnityCoreLibrary
             else if (float.TryParse(value, out float floatResult))
                 return floatResult;
             else
-                return null;
+                return value;
         }
 
         public void Load(string path, out List<Dictionary<string, object>> dataList)

@@ -14,8 +14,9 @@ public class GameScene : BaseScene
     {
         base.Init(scene);
 
-        Managers.Object.AddPlayer(_spawnPos);
+        Managers.SkillData.Load();
         Managers.UI.ShowSceneUI<UIGameScene>();
+        Managers.Object.AddPlayer(_spawnPos);
     }
 
     public override void Clear()

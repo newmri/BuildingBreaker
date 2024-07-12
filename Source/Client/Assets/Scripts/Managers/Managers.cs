@@ -9,17 +9,21 @@ public class Managers : MonoBehaviour
     static Managers s_instance; // 유일성이 보장된다
     public static Managers Instance { get { Init(); return s_instance; } } // 유일한 매니저를 갖고온다
 
-    #region Contents
+    #region Data
     SettingDataManager _settingData = new SettingDataManager();
     MessageDataManager _messageData = new MessageDataManager();
     UserDataManager _userData = new UserDataManager();
     StageDataManager _stageData = new StageDataManager();
+    SkillDataManager _skillData = new SkillDataManager();
 
     public static SettingDataManager SettingData { get { return Instance._settingData; } }
     public static MessageDataManager MessageData { get { return Instance._messageData; } }
     public static UserDataManager UserData { get { return Instance._userData; } }
     public static StageDataManager StageData { get { return Instance._stageData; } }
+    public static SkillDataManager SkillData { get { return Instance._skillData; } }
+    #endregion
 
+    #region Contents
     #endregion
 
     #region Core
