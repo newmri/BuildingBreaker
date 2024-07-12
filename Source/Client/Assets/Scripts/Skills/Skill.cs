@@ -5,14 +5,14 @@ public class Skill
 {
     public Skill(byte skillID)
     {
-        // Need to set data from a file
         SkillID = skillID;
+        CoolTime = Managers.SkillData.GetCoolTime(skillID);
     }
 
     public byte SkillID { get; private set; } = 0;
     public bool UsedSkill { get; private set; } = false;
     public float ElapsedCoolTime { get; private set; } = 0.0f;
-    public float CoolTime { get; private set; } = 1.0f;
+    public float CoolTime { get; private set; } = 0.0f;
 
     public bool CanUseSkill()
     {

@@ -16,6 +16,11 @@ public class SkillDataManager
         return CoreManagers.Resource.Load<Sprite>(GetData(skillID, "ImagePath").ToString());
     }
 
+    public float GetCoolTime(int skillID)
+    {
+        return (float)GetData(skillID, "CoolTime");
+    }
+
     public object GetData(int skillID, string name)
     {
         return _skillList[skillID][name];
