@@ -7,6 +7,10 @@ public class PlayerController : BaseController
 {
     private Animator _animator;
     private SkillManager _skillManager;
+    private Rigidbody2D _rigidbody;
+
+    [SerializeField]
+    private float _jumpPower = 5.0f;
 
     protected override void Init()
     {
@@ -15,14 +19,13 @@ public class PlayerController : BaseController
         _skillManager.AddSkill(1);
         _skillManager.AddSkill(2);
 
+        _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         base.Init();
     }
 
     protected override bool UpdateController()
     {
-        GetInput();
-
         if (base.UpdateController())
             return true;
 
@@ -36,7 +39,6 @@ public class PlayerController : BaseController
                 break;
         }
 
-
         return isUpdated;
     }
 
@@ -45,15 +47,13 @@ public class PlayerController : BaseController
         switch (State)
         {
             case ObjectState.SKILL:
-                _animator.SetBool("OnAttack", true, () =>
+                _animator.SetBool(_skillManager.AnimationName, true, (string name) =>
                 {
-                    _animator.SetBool("OnAttack", false);
+                    _animator.SetBool(name, false);
                     State = ObjectState.IDLE;
                 });
                 break;
         }
-
-
     }
 
     protected virtual void UpdateSkill()
@@ -61,18 +61,28 @@ public class PlayerController : BaseController
 
     }
 
-    private void GetInput()
-    {
-        
-    }
-
     public void UseSkill(byte skillID)
     {
-        if (State == ObjectState.SKILL || false == _skillManager.CanUseSkill(skillID))
+        if (false == _skillManager.CanUseSkill(skillID))
             return;
 
-        State = ObjectState.SKILL;
-
         _skillManager.UseSkill(skillID);
+
+        State = ObjectState.SKILL;
+    }
+
+    public void Jump()
+    {
+        _rigidbody.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        switch(collision.gameObject.name)
+        {
+            case "Ground":
+                State = ObjectState.IDLE;
+                break;
+        }
     }
 }

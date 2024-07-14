@@ -1,3 +1,3 @@
-SkillID,CoolTime,ImagePath
-1,1.00 ,UI/Skills/Attack
-2,1.00 ,UI/Skills/Jump
+SkillID,CoolTime,ClassName,ImagePath,AnimationName
+1,0.50 ,Skill,UI/Skills/Attack,Attack
+2,0.50 ,JumpSkill,UI/Skills/Jump,Jump

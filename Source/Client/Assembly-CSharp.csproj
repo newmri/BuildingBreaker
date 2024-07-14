@@ -121,6 +121,7 @@
     <Compile Include="Assets\Scripts\UI\Scenes\UIGameScene.cs" />
     <Compile Include="Assets\Scripts\Managers\Managers.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralEventsListeners.cs" />
+    <Compile Include="Assets\Scripts\Skills\JumpSkill.cs" />
     <Compile Include="Assets\LeanTween\Framework\LeanTweenExt.cs" />
     <Compile Include="Assets\Scripts\Scenes\GameScene.cs" />
     <Compile Include="Assets\LeanTween\Framework\LeanAudio.cs" />

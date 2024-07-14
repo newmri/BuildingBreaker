@@ -12,52 +12,28 @@ namespace UnityCoreLibrary.Animation
             return animator.gameObject.GetOrAddComponent<AnimatorEventReceiever>();
         }
 
-        public static void SetInteger(this Animator animator, string name, int value, Action onFinished)
+        public static void SetInteger(this Animator animator, string name, int value, Action<string> onFinished)
         {
             animator.SetInteger(name, value);
-            AttachReceiever(ref animator).OnStateEnd(onFinished);
+            AttachReceiever(ref animator).OnStateEnd(name, onFinished);
         }
 
-        public static void SetInteger(this Animator animator, int id, int value, Action onFinished)
-        {
-            animator.SetInteger(id, value);
-            AttachReceiever(ref animator).OnStateEnd(onFinished);
-        }
-
-        public static void SetFloat(this Animator animator, string name, float value, Action onFinished)
+        public static void SetFloat(this Animator animator, string name, float value, Action<string> onFinished)
         {
             animator.SetFloat(name, value);
-            AttachReceiever(ref animator).OnStateEnd(onFinished);
+            AttachReceiever(ref animator).OnStateEnd(name, onFinished);
         }
 
-        public static void SetFloat(this Animator animator, int id, float value, Action onFinished)
-        {
-            animator.SetFloat(id, value);
-            AttachReceiever(ref animator).OnStateEnd(onFinished);
-        }
-
-        public static void SetBool(this Animator animator, string name, bool value, Action onFinished)
+        public static void SetBool(this Animator animator, string name, bool value, Action<string> onFinished)
         {
             animator.SetBool(name, value);
-            AttachReceiever(ref animator).OnStateEnd(onFinished);
+            AttachReceiever(ref animator).OnStateEnd(name, onFinished);
         }
 
-        public static void SetBool(this Animator animator, int id, bool value, Action onFinished)
-        {
-            animator.SetBool(id, value);
-            AttachReceiever(ref animator).OnStateEnd(onFinished);
-        }
-
-        public static void SetTrigger(this Animator animator, string name, Action onFinished)
+        public static void SetTrigger(this Animator animator, string name, Action<string> onFinished)
         {
             animator.SetTrigger(name);
-            AttachReceiever(ref animator).OnStateEnd(onFinished);
-        }
-
-        public static void SetTrigger(this Animator animator, int hashid, Action onFinished)
-        {
-            animator.SetTrigger(hashid);
-            AttachReceiever(ref animator).OnStateEnd(onFinished);
+            AttachReceiever(ref animator).OnStateEnd(name, onFinished);
         }
     }
 
@@ -77,14 +53,14 @@ namespace UnityCoreLibrary.Animation
         private Coroutine _coroutine = null;
         private bool _isPlayingAnimator = false;
 
-        public void OnStateEnd(Action onFinished)
+        public void OnStateEnd(string name, Action<string> onFinished)
         {
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
-            _coroutine = StartCoroutine(OnStateEndCheck(onFinished));
+            _coroutine = StartCoroutine(OnStateEndCheck(name, onFinished));
         }
 
-        public IEnumerator OnStateEndCheck(Action onFinished)
+        public IEnumerator OnStateEndCheck(string name, Action<string> onFinished)
         {
             _isPlayingAnimator = true;
             while (true)
@@ -97,7 +73,7 @@ namespace UnityCoreLibrary.Animation
                     if (!_isPlayingAnimator) break;
                 }
             }
-            onFinished?.Invoke();
+            onFinished?.Invoke(name);
         }
 
         private void Awake()

@@ -19,7 +19,7 @@ public class Skill
         return 0.0f == ElapsedCoolTime;
     }
 
-    public void UseSkill()
+    public virtual void UseSkill()
     {
         UsedSkill = true;
     }
@@ -31,7 +31,7 @@ public class Skill
             Clear();
     }
 
-    private void Clear()
+    virtual protected void Clear()
     {
         UsedSkill = false;
         ElapsedCoolTime = 0.0f;

@@ -21,6 +21,16 @@ public class SkillDataManager
         return (float)GetData(skillID, "CoolTime");
     }
 
+    public string GetClassName(int skillID)
+    {
+        return (string)GetData(skillID, "ClassName");
+    }
+
+    public string GetAnimationName(int skillID)
+    {
+        return (string)GetData(skillID, "AnimationName");
+    }
+
     public object GetData(int skillID, string name)
     {
         return _skillList[skillID][name];
