@@ -9,9 +9,6 @@ public class PlayerController : BaseController
     private SkillManager _skillManager;
     private Rigidbody2D _rigidbody;
 
-    [SerializeField]
-    private float _jumpPower = 5.0f;
-
     protected override void Init()
     {
         _skillManager = GetComponent<SkillManager>();
@@ -56,6 +53,11 @@ public class PlayerController : BaseController
         }
     }
 
+    protected override void UpdateIdle()
+    {
+        base.UpdateIdle();
+    }
+
     protected virtual void UpdateSkill()
     {
 
@@ -71,9 +73,9 @@ public class PlayerController : BaseController
         State = ObjectState.SKILL;
     }
 
-    public void Jump()
+    public void Jump(float jumpPower)
     {
-        _rigidbody.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
+        _rigidbody.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -82,6 +84,7 @@ public class PlayerController : BaseController
         {
             case "Ground":
                 State = ObjectState.IDLE;
+                _skillManager.GetSkill<JumpSkill>(nameof(JumpSkill)).JumpCount = 0;
                 break;
         }
     }

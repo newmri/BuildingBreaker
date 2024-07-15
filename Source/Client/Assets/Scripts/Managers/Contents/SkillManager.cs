@@ -5,6 +5,8 @@ using System;
 public class SkillManager : MonoBehaviour
 {
     private Dictionary<byte, Skill> _skillList = new Dictionary<byte, Skill>();
+    private Dictionary<string, Skill> _skillListByName = new Dictionary<string, Skill>();
+
     private UIGameScene _uiGameScene;
 
     public string AnimationName { get; private set; }
@@ -29,14 +31,14 @@ public class SkillManager : MonoBehaviour
 
     public void AddSkill(byte skillID)
     {
-        _skillList.Add(skillID, CreateSkill(skillID));
-        _uiGameScene.AddSkill(skillID);
-    }
+        var name = Managers.SkillData.GetClassName(skillID);
+        var type = Type.GetType(name);
+        var skill = (Skill)Activator.CreateInstance(type, skillID);
 
-    private Skill CreateSkill(byte skillID)
-    {
-        var type = Type.GetType(Managers.SkillData.GetClassName(skillID));
-        return (Skill)Activator.CreateInstance(type, skillID);
+        _skillList.Add(skillID, skill);
+        _skillListByName.Add(name, skill);
+
+        _uiGameScene.AddSkill(skillID);
     }
 
     public bool CanUseSkill(byte skillID)
@@ -48,5 +50,10 @@ public class SkillManager : MonoBehaviour
     {
         AnimationName = Managers.SkillData.GetAnimationName(skillID);
         _skillList[skillID].UseSkill();
+    }
+
+    public T GetSkill<T>(string name) where T : Skill
+    {
+        return (T)_skillListByName[name];
     }
 }
