@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\UI\Popup\UIMessagePopup.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplinePerformance.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralEasingTypes.cs" />
+    <Compile Include="Assets\Scripts\Weapons\Weapon.cs" />
     <Compile Include="Assets\Scripts\Managers\Data\SkillDataManager.cs" />
     <Compile Include="Assets\LeanTween\Testing\FollowingTests.cs" />
     <Compile Include="Assets\Scripts\UI\Scenes\UILoadingScene.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Assets\Scripts\Managers\Contents\SkillManager.cs" />
     <Compile Include="Assets\Scripts\Managers\Data\MessageDataManager.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralCameraShake.cs" />
+    <Compile Include="Assets\Scripts\Weapons\WeaponComponent.cs" />
     <Compile Include="Assets\Scripts\UI\Scenes\UITitleScene.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplineTrack.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSpline.cs" />
@@ -126,6 +128,7 @@
     <Compile Include="Assets\Scripts\Scenes\GameScene.cs" />
     <Compile Include="Assets\LeanTween\Framework\LeanAudio.cs" />
     <Compile Include="Assets\LeanTween\Framework\LTDescrOptional.cs" />
+    <Compile Include="Assets\Scripts\Weapons\WeaponSprite.cs" />
     <Compile Include="Assets\LeanTween\Testing\TestingIssue.cs" />
     <Compile Include="Assets\Scripts\Managers\Data\StageDataManager.cs" />
     <Compile Include="Assets\LeanTween\Testing\TestingOptionalCancel.cs" />

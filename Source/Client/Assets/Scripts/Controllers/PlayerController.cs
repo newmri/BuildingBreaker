@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityCoreLibrary;
 using UnityCoreLibrary.Animation;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class PlayerController : BaseController
     private Animator _animator;
     private SkillManager _skillManager;
     private Rigidbody2D _rigidbody;
-
+    private WeaponSprite _weaponSprite;
     protected override void Init()
     {
         _skillManager = GetComponent<SkillManager>();
@@ -18,6 +19,8 @@ public class PlayerController : BaseController
 
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _weaponSprite = Util.FindChild<WeaponSprite>(gameObject);
+
         base.Init();
     }
 
@@ -44,10 +47,13 @@ public class PlayerController : BaseController
         switch (State)
         {
             case ObjectState.SKILL:
+                _weaponSprite.Attack = true;
                 _animator.SetBool(_skillManager.AnimationName, true, (string name) =>
                 {
                     _animator.SetBool(name, false);
+
                     State = ObjectState.IDLE;
+                    _weaponSprite.Attack = false;
                 });
                 break;
         }
