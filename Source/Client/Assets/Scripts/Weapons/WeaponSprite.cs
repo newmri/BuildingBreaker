@@ -10,7 +10,27 @@ public class WeaponSprite : WeaponComponent
     private SpriteRenderer _weaponSpriteRenderer;
     private int _currentWeaponSpriteIndex = 0;
 
-    public bool Attack { get; set; }
+    private bool _attack = false;
+    public bool Attack
+    {
+        get
+        {
+            return _attack;
+        }
+        set
+        {
+            _attack = value;
+            if (true == _attack)
+                _playerSpriteRenderer.RegisterSpriteChangeCallback(HandlePlayerSpriteChange);
+            else
+            {
+                _playerSpriteRenderer.UnregisterSpriteChangeCallback(HandlePlayerSpriteChange);
+                _currentWeaponSpriteIndex = 0;
+                UpdateAnimation();
+            }
+
+        }
+    }
 
     [SerializeField]
     private WeaponSprites _sprite;
@@ -25,14 +45,13 @@ public class WeaponSprite : WeaponComponent
 
     private void HandlePlayerSpriteChange(SpriteRenderer sr)
     {
-        if (false == Attack)
+        ++_currentWeaponSpriteIndex;
+        if(_currentWeaponSpriteIndex >= _sprite.Sprites.Length)
         {
             _currentWeaponSpriteIndex = 0;
-            UpdateAnimation();
             return;
         }
 
-        _currentWeaponSpriteIndex = (_currentWeaponSpriteIndex + 1) % _sprite.Sprites.Length;
         UpdateAnimation();
     }
 
@@ -40,11 +59,6 @@ public class WeaponSprite : WeaponComponent
     {
         _weaponSpriteRenderer.sprite = _sprite.Sprites[_currentWeaponSpriteIndex];
         transform.localPosition = _animationPos[_currentWeaponSpriteIndex];
-    }
-
-    private void OnEnable()
-    {
-        _playerSpriteRenderer.RegisterSpriteChangeCallback(HandlePlayerSpriteChange);
     }
 
     [Serializable]

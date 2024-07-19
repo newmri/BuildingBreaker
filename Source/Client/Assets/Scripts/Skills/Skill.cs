@@ -1,5 +1,6 @@
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using static WeaponSprite;
 
 public class Skill
 {

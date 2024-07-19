@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 107
+  controlID: 104
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 105
+  controlID: 18
   draggingID: 0
 --- !u!114 &5
 MonoBehaviour:
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 106
+  controlID: 19
   draggingID: 0
 --- !u!114 &9
 MonoBehaviour:
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 42
+  controlID: 20
   draggingID: 0
 --- !u!114 &10
 MonoBehaviour:
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 43
+  controlID: 21
   draggingID: 0
 --- !u!114 &11
 MonoBehaviour:
@@ -269,8 +269,8 @@ MonoBehaviour:
     y: 0
     width: 493.33334
     height: 993.3333
-  m_MinSize: {x: 201, y: 226}
-  m_MaxSize: {x: 4001, y: 4026}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -349,8 +349,8 @@ MonoBehaviour:
     y: 710
     width: 1228.6667
     height: 568
-  m_MinSize: {x: 51, y: 76}
-  m_MaxSize: {x: 4001, y: 4026}
+  m_MinSize: {x: 50, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -913,8 +913,8 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_WindowGUID: 4d1293573d8a67744b43f1d59913f05a
   m_Gizmos: 1
-  m_OverrideSceneCullingMask: 0
-  m_SceneIsLit: 0
+  m_OverrideSceneCullingMask: 6917529027641081856
+  m_SceneIsLit: 1
   m_SceneLighting: 1
   m_2DMode: 1
   m_isRotationLocked: 0
@@ -922,9 +922,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 0.76725096, y: -2.8940592, z: -0.012074991}
+    m_Target: {x: -0.5741646, y: -0.42555642, z: 4.033183}
     speed: 2
-    m_Value: {x: 0.76725096, y: -2.8940592, z: -0.012074991}
+    m_Value: {x: -0.5741646, y: -0.42555642, z: 4.033183}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -935,7 +935,7 @@ MonoBehaviour:
   m_SceneViewState:
     m_AlwaysRefresh: 0
     showFog: 1
-    showSkybox: 0
+    showSkybox: 1
     showFlares: 1
     showImageEffects: 1
     showParticleSystems: 1
@@ -974,9 +974,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 2.066639
+    m_Target: 4.7208304
     speed: 2
-    m_Value: 2.066639
+    m_Value: 4.7208304
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1045,7 +1045,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 51462
+  m_LastSelectedObjectID: -18052
 --- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1090,11 +1090,11 @@ MonoBehaviour:
     - e00: 1
       e01: 0
       e02: 0
-      e03: -34.00003
+      e03: -20.999908
       e10: 0
       e11: 1
       e12: 0
-      e13: 68.83333
+      e13: 68.83336
       e20: 0
       e21: 0
       e22: 1
@@ -1174,23 +1174,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: b2c50000
       m_LastClickedID: 0
-      m_ExpandedIDs: 5ef7fffff8c8000006c90000
+      m_ExpandedIDs: 80f7ffffaefaffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: attack_re_01_0
-        m_OriginalName: attack_re_01_0
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -89750
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 4
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
         m_ClientGUIView: {fileID: 11}
@@ -1248,7 +1248,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Sprites/Weapons/Wooden
+    - Assets/Resources/Sprites/Characters/Char1/DefenseHit
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1258,16 +1258,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Resources/Sprites/Weapons/Wooden
+  - Assets/Resources/Sprites/Characters/Char1/DefenseHit
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\HavePoop\Desktop\Study\BuildingBreaker\Source\Client
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 465.3333}
-    m_SelectedIDs: beca0000
-    m_LastClickedID: 51902
-    m_ExpandedIDs: 0000000066bf000068bf00006abf00006cbf00006ebf000070bf000072bf000074bf000076bf000078bf00007abf00007cbf00007ebf0000e0c70000baca000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 577.3333}
+    m_SelectedIDs: 26cb0000
+    m_LastClickedID: 52006
+    m_ExpandedIDs: 0000000070bf000072bf000074bf000076bf000078bf00007abf00007cbf00007ebf000080bf000082bf000084bf000086bf000088bf0000bac70000d6c7000052c8000054c80000f0ca000016cb000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1296,7 +1296,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000066bf000068bf00006abf00006cbf00006ebf000070bf000072bf000074bf000076bf000078bf00007abf00007cbf00007ebf0000
+    m_ExpandedIDs: 0000000070bf000072bf000074bf000076bf000078bf00007abf00007cbf00007ebf000080bf000082bf000084bf000086bf000088bf0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1483,7 +1483,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 1}
-  m_TargetSize: {x: 2048, y: 2732}
+  m_TargetSize: {x: 1170, y: 2532}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -1508,7 +1508,7 @@ MonoBehaviour:
     fitToScreenEnabled: 0
     rotationDegree: 0
     highlightSafeAreaEnabled: 0
-    friendlyName: Apple iPad Pro 12.9 (2018)
+    friendlyName: Apple iPhone 12
     screenIndex: 0
     networkReachability: 1
     systemLanguage: 10

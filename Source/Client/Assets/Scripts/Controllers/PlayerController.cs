@@ -1,8 +1,10 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityCoreLibrary;
 using UnityCoreLibrary.Animation;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using static WeaponSprite;
 
 public class PlayerController : BaseController
 {
@@ -47,7 +49,9 @@ public class PlayerController : BaseController
         switch (State)
         {
             case ObjectState.SKILL:
-                _weaponSprite.Attack = true;
+                if("Attack" == _skillManager.AnimationName)
+                    _weaponSprite.Attack = true;
+
                 _animator.SetBool(_skillManager.AnimationName, true, (string name) =>
                 {
                     _animator.SetBool(name, false);
