@@ -32,16 +32,12 @@ public class UIManager
         canvas.renderMode = RenderMode.ScreenSpaceCamera;
         canvas.worldCamera = Camera.main;
         canvas.overrideSorting = true;
+        canvas.sortingLayerName = "UI";
 
         if (sort)
-        {
-            canvas.sortingLayerName = "UI";
             canvas.sortingOrder = ++_sortOrder;
-        }
         else
-        {
             canvas.sortingOrder = 0;
-        }
 
         Util.GetOrAddComponent<CanvasScaler>(go).uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
         Util.GetOrAddComponent<CanvasScaler>(go).referenceResolution = new Vector2(1440, 2560);

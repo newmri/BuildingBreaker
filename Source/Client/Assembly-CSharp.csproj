@@ -141,7 +141,9 @@
     <Compile Include="Assets\Scripts\Managers\Core\LanguageManager.cs" />
     <Compile Include="Assets\Scripts\Scenes\TitleScene.cs" />
     <Compile Include="Assets\LeanTween\Testing\Testing243.cs" />
+    <Compile Include="Assets\Scripts\Backgroudns\Background.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathBezier.cs" />
+    <Compile Include="Assets\Scripts\Controllers\CameraController.cs" />
     <Compile Include="Assets\Layer Lab\Scripts\PanelView.cs" />
     <Compile Include="Assets\CrystalFramework\Utility\SafeArea.cs" />
     <Compile Include="Assets\LeanTween\Testing\Testing246.cs" />

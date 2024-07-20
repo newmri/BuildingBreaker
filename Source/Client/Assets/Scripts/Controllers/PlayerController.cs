@@ -98,4 +98,9 @@ public class PlayerController : BaseController
                 break;
         }
     }
+
+    public bool IsFalling()
+    {
+        return 0.0f > _rigidbody.velocity.y;
+    }
 }
