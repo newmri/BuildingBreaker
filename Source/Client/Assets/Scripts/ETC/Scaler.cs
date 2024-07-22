@@ -1,9 +1,11 @@
 using UnityEngine;
 
-public class Background : MonoBehaviour
+public class Scaler : MonoBehaviour
 {
     [SerializeField]
     private bool _isAspectRatio = true;
+    [SerializeField]
+    private bool _isBottomPosition = true;
 
     private void Start()
     {
@@ -22,9 +24,12 @@ public class Background : MonoBehaviour
             else
                 localScale.x = localScale.y;
 
-            var spriteHeightAfterScaling = spriteSize.y * localScale.y;
-            var bottomPositionY = -topRightCorner.y + (spriteHeightAfterScaling / 2);
-            transform.position = new Vector3(transform.position.x, bottomPositionY, transform.position.z);
+            if (_isBottomPosition)
+            {
+                var spriteHeightAfterScaling = spriteSize.y * localScale.y;
+                var bottomPositionY = -topRightCorner.y + (spriteHeightAfterScaling / 2);
+                transform.position = new Vector3(transform.position.x, bottomPositionY, transform.position.z);
+            }
         }
 
         gameObject.transform.localScale = localScale;

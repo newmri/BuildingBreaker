@@ -136,12 +136,12 @@
     <Compile Include="Assets\Scripts\UI\Scenes\UIScene.cs" />
     <Compile Include="Assets\LeanTween\Testing\Testing248.cs" />
     <Compile Include="Assets\LeanTween\Testing\TestingColorTweening.cs" />
+    <Compile Include="Assets\Scripts\ETC\Scaler.cs" />
     <Compile Include="Assets\Scripts\UI\Controllers\SwipeController.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralSimpleUI.cs" />
     <Compile Include="Assets\Scripts\Managers\Core\LanguageManager.cs" />
     <Compile Include="Assets\Scripts\Scenes\TitleScene.cs" />
     <Compile Include="Assets\LeanTween\Testing\Testing243.cs" />
-    <Compile Include="Assets\Scripts\Backgroudns\Background.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathBezier.cs" />
     <Compile Include="Assets\Scripts\Controllers\CameraController.cs" />
     <Compile Include="Assets\Layer Lab\Scripts\PanelView.cs" />
@@ -152,6 +152,7 @@
     <Compile Include="Assets\LeanTween\Framework\LTSeq.cs" />
     <Compile Include="Assets\Scripts\Scenes\LobbyScene.cs" />
     <Compile Include="Assets\Scripts\UI\Stage\UILockStage.cs" />
+    <Compile Include="Assets\Scripts\Objects\FallingObject.cs" />
     <Compile Include="Assets\Scripts\Managers\Core\SecurityManager.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralBasic.cs" />
   </ItemGroup>

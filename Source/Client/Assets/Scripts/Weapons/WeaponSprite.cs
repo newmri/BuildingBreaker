@@ -67,4 +67,17 @@ public class WeaponSprite : WeaponComponent
         [field: SerializeField]
         public Sprite[] Sprites { get; private set; }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        switch (collision.gameObject.name)
+        {
+            case "Building":
+                if(Attack)
+                    Debug.Log("Attack Building");
+                break;
+            default:
+                break;
+        }
+    }
 }

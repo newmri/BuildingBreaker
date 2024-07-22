@@ -44,11 +44,14 @@ TagManager:
   - name: Background
     uniqueID: 4204846039
     locked: 0
+  - name: Object
+    uniqueID: 4238166757
+    locked: 0
   - name: Weapon
     uniqueID: 1204417541
     locked: 0
-  - name: Object
-    uniqueID: 4238166757
+  - name: Player
+    uniqueID: 3608264435
     locked: 0
   - name: UI
     uniqueID: 2168895949
