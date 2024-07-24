@@ -1,11 +1,9 @@
+using UnityCoreLibrary;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class FallingObject : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _background;
-
     private float _gravity = -9.8f;
     private float _fallSpeed = 0f;
 
@@ -13,10 +11,10 @@ public class FallingObject : MonoBehaviour
 
     private void Start()
     {
-        var backgroundRenderer = _background.GetComponent<SpriteRenderer>();
+        var bounds = GetComponent<SpriteRenderer>().bounds;
+        var backgroundBounds = GetComponentInParent<SpriteRenderer>().bounds;
 
-        float backgroundTop = backgroundRenderer.bounds.max.y;
-        var newPosition = new Vector3(transform.position.x, backgroundTop, transform.position.z);
+        var newPosition = new Vector3(transform.position.x, bounds.size.y + backgroundBounds.size.y, transform.position.z);
 
         transform.position = newPosition;
     }
@@ -36,13 +34,19 @@ public class FallingObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.gameObject.name);
+
         switch (collision.gameObject.name)
         {
             case "Player":
-                _isFalling = false;
                 break;
             default:
                 break;
         }
+    }
+
+    public void OnTriggerExit2D(Collider2D other)
+    {
+        Debug.Log(other.gameObject.name);
     }
 }

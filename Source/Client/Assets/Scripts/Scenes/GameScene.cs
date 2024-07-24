@@ -1,10 +1,7 @@
 using UnityCoreLibrary;
-using UnityEngine;
 
 public class GameScene : BaseScene
 {
-    public Vector3 _spawnPos { get; set; } = new Vector3(0.0f, -4.25f, 0.0f);
-
     private void Awake()
     {
         Init(CoreDefine.Scene.Game);
@@ -16,7 +13,8 @@ public class GameScene : BaseScene
 
         Managers.SkillData.Load();
         Managers.UI.ShowSceneUI<UIGameScene>();
-        Managers.Object.AddPlayer(_spawnPos);
+
+        Managers.Object.Init();
     }
 
     public override void Clear()

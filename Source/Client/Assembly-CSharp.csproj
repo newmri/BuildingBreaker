@@ -98,6 +98,7 @@
     <Compile Include="Assets\Scripts\UI\Popup\UIPopup.cs" />
     <Compile Include="Assets\Scripts\UI\UIPage.cs" />
     <Compile Include="Assets\Scripts\Managers\Core\UIManager.cs" />
+    <Compile Include="Assets\Scripts\Objects\GroundObject.cs" />
     <Compile Include="Assets\Scripts\Controllers\BaseController.cs" />
     <Compile Include="Assets\LeanTween\Framework\LeanTween.cs" />
     <Compile Include="Assets\Scripts\Scenes\IntroScene.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Assets\Scripts\Managers\Data\MessageDataManager.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralCameraShake.cs" />
     <Compile Include="Assets\Scripts\Weapons\WeaponComponent.cs" />
+    <Compile Include="Assets\Scripts\ETC\Stage.cs" />
     <Compile Include="Assets\Scripts\UI\Scenes\UITitleScene.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplineTrack.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSpline.cs" />

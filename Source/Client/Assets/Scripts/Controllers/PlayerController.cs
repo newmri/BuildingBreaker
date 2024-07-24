@@ -4,7 +4,6 @@ using UnityCoreLibrary;
 using UnityCoreLibrary.Animation;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using static WeaponSprite;
 
 public class PlayerController : BaseController
 {
@@ -12,6 +11,7 @@ public class PlayerController : BaseController
     private SkillManager _skillManager;
     private Rigidbody2D _rigidbody;
     private WeaponSprite _weaponSprite;
+
     protected override void Init()
     {
         _skillManager = GetComponent<SkillManager>();

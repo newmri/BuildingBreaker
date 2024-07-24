@@ -33,6 +33,5 @@ public class Scaler : MonoBehaviour
         }
 
         gameObject.transform.localScale = localScale;
-
     }
 }
