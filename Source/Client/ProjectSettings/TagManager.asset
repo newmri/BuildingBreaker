@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Stage
+  - Effects
+  - Effect
   layers:
   - Default
   - TransparentFX
@@ -53,6 +55,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3608264435
+    locked: 0
+  - name: Effect
+    uniqueID: 4003818357
     locked: 0
   - name: UI
     uniqueID: 2168895949

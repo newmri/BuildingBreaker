@@ -1,3 +1,4 @@
+using UnityCoreLibrary;
 using UnityEngine;
 
 public class JumpSkill : Skill
@@ -24,6 +25,8 @@ public class JumpSkill : Skill
         base.UseSkill();
         ++JumpCount;
 
-        Managers.Object.Player.Jump(_jumpPower);  
+        Managers.Object.Player.Jump(_jumpPower);
+
+        CoreManagers.Obj.Add("Effects", "JumpEffect", Managers.Object.PlayerGround.GetPosition(), 1, Managers.Object.Stage.transform);
     }
 }
