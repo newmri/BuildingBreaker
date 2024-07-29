@@ -11,6 +11,7 @@ public class PlayerController : BaseController
     private SkillManager _skillManager;
     private Rigidbody2D _rigidbody;
     private WeaponSprite _weaponSprite;
+    private JumpSkill _jumpSkill;
 
     protected override void Init()
     {
@@ -18,6 +19,7 @@ public class PlayerController : BaseController
         _skillManager.Init();
         _skillManager.AddSkill(1);
         _skillManager.AddSkill(2);
+        _jumpSkill = _skillManager.GetSkill<JumpSkill>(nameof(JumpSkill));
 
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
@@ -94,7 +96,12 @@ public class PlayerController : BaseController
         {
             case "Ground":
                 State = ObjectState.IDLE;
-                _skillManager.GetSkill<JumpSkill>(nameof(JumpSkill)).JumpCount = 0;
+                if (0 < _jumpSkill.JumpCount)
+                {
+                    CoreManagers.Obj.Add("Effects", "LandingEffect", Managers.Object.PlayerGround.GetPosition(), 1, Managers.Object.Stage.transform);
+                    _jumpSkill.JumpCount = 0;
+                }
+
                 break;
         }
     }

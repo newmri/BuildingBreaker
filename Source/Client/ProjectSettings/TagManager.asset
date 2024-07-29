@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Stage
   - Effects
-  - Effect
   layers:
   - Default
   - TransparentFX

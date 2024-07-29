@@ -7,7 +7,7 @@ public class FallingObject : MonoBehaviour
     private float _gravity = -9.8f;
     private float _fallSpeed = 0f;
 
-    private bool _isFalling = true;
+    private bool _isFalling = false;
 
     private void Start()
     {
@@ -34,11 +34,10 @@ public class FallingObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.name);
-
         switch (collision.gameObject.name)
         {
             case "Player":
+                _isFalling = false;
                 break;
             default:
                 break;
