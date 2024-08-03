@@ -14,7 +14,7 @@ public class GameScene : BaseScene
         Managers.SkillData.Load();
         Managers.UI.ShowSceneUI<UIGameScene>();
 
-        Managers.Object.Init();
+        Managers.Stage.Init();
     }
 
     public override void Clear()

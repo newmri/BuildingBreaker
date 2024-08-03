@@ -6,20 +6,17 @@ public class ObjectManager
     public PlayerController Player { get; set; }
     public GroundObject PlayerGround { get; set; }
     public CameraController Camera { get; set; }
-    public GameObject Stage { get; set; }
 
     private Vector3 _groundPosition;
     public Vector3 GroundPosition { get { return _groundPosition; } set { _groundPosition = value; } }
 
     public void Init()
     {
-        Stage = GameObject.FindGameObjectWithTag("Stage");
-
-        var ground = Util.FindChild(Stage, "Ground");
+        var ground = Util.FindChild(Managers.Stage.StageObject, "Ground");
         _groundPosition = ground.transform.localPosition;
         _groundPosition.y += (ground.GetComponent<BoxCollider2D>().size.y / 2);
 
-        Managers.Object.AddPlayer(Stage);
+        Managers.Object.AddPlayer(Managers.Stage.StageObject);
     }
 
     private void AddPlayer(GameObject parent)

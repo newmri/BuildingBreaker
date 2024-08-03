@@ -98,7 +98,7 @@ public class PlayerController : BaseController
                 State = ObjectState.IDLE;
                 if (0 < _jumpSkill.JumpCount)
                 {
-                    CoreManagers.Obj.Add("Effects", "LandingEffect", Managers.Object.PlayerGround.GetPosition(), 1, Managers.Object.Stage.transform);
+                    CoreManagers.Obj.Add("Effects", "LandingEffect", Managers.Object.PlayerGround.GetPosition(), 1, Managers.Stage.StageObject.transform);
                     _jumpSkill.JumpCount = 0;
                 }
 

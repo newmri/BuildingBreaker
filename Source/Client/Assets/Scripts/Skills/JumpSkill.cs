@@ -27,6 +27,6 @@ public class JumpSkill : Skill
 
         Managers.Object.Player.Jump(_jumpPower);
 
-        CoreManagers.Obj.Add("Effects", "JumpEffect", Managers.Object.PlayerGround.GetPosition(), 1, Managers.Object.Stage.transform);
+        CoreManagers.Obj.Add("Effects", "JumpEffect", Managers.Object.PlayerGround.GetPosition(), 1, Managers.Stage.StageObject.transform);
     }
 }

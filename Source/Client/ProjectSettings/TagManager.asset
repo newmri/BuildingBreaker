@@ -15,7 +15,7 @@ TagManager:
   - UI
   - Object
   - Player
-  - 
+  - Ground
   - 
   - 
   - 
@@ -57,6 +57,9 @@ TagManager:
     locked: 0
   - name: Effect
     uniqueID: 4003818357
+    locked: 0
+  - name: Building
+    uniqueID: 1745359143
     locked: 0
   - name: UI
     uniqueID: 2168895949

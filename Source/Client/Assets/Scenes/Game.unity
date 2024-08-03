@@ -179,8 +179,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -56800539
-  m_SortingLayer: 2
+  m_SortingLayerID: 1745359143
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -1268172454830812994, guid: 5df63aff514920a409b29c08367a258c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -507,7 +507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 690205580}
   - component: {fileID: 690205581}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
