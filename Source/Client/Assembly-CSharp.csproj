@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\UI\Particles\UIParticleSystem.cs" />
     <Compile Include="Assets\LeanTween\Testing\TestingDescr.cs" />
     <Compile Include="Assets\Layer Lab\Scripts\PanelControl.cs" />
+    <Compile Include="Assets\Scripts\UI\Popup\UIGameOverPopup.cs" />
     <Compile Include="Assets\Scripts\UI\Popup\UIStagePopup.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralBasics2d.cs" />
     <Compile Include="Assets\Scripts\UI\Popup\Input\UINickNameInputPopup.cs" />

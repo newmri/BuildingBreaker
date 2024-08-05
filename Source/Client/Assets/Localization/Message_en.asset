@@ -22,6 +22,14 @@ MonoBehaviour:
     m_Localized: Len of nickName must be {0} ~ {1}
     m_Metadata:
       m_Items: []
+  - m_Id: 11603996983820288
+    m_Localized: Game Over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11605115248181248
+    m_Localized: If you got dead often, upgrade your items
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

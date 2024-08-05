@@ -12,6 +12,7 @@ public class StageManager
         set
         {
             _gameOver = value;
+            Managers.UI.ShowPopupUI<UIGameOverPopup>();
         }
     }
 

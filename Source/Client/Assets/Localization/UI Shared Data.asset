@@ -99,6 +99,14 @@ MonoBehaviour:
     m_Key: NickNameMakeInfo
     m_Metadata:
       m_Items: []
+  - m_Id: 15221982684643328
+    m_Key: GoToLobby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15224421093605376
+    m_Key: Retry
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

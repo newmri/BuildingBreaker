@@ -19,6 +19,14 @@ MonoBehaviour:
     m_Key: NickNameLenError
     m_Metadata:
       m_Items: []
+  - m_Id: 11603996983820288
+    m_Key: GameOver
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11605115248181248
+    m_Key: GameOverInfo
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

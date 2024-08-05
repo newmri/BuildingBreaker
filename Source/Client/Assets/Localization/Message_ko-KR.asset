@@ -23,6 +23,15 @@ MonoBehaviour:
       \uD574\uC8FC\uC138\uC694."
     m_Metadata:
       m_Items: []
+  - m_Id: 11603996983820288
+    m_Localized: Game Over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11605115248181248
+    m_Localized: "\uC790\uC8FC \uC8FD\uB294\uB2E4\uBA74 \uC544\uC774\uD15C\uC744
+      \uC5C5\uADF8\uB808\uC774\uB4DC \uD574\uBCF4\uC138\uC694!"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
